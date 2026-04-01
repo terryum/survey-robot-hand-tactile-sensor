@@ -105,7 +105,7 @@ bash scripts/build_pdf.sh en
 
 ## Acknowledgment
 
-This project was built using the [Harness](https://github.com/revfactory/harness) skill by Minho Hwang, and the site structure was heavily inspired by [AI Trend Onboarding](https://github.com/revfactory/ai-trend-onboarding). Special thanks to Minho Hwang for creating these excellent tools.
+This project was built using [Harness](https://github.com/revfactory/harness) (Apache 2.0) by Minho Hwang. The website structure was adapted from [AI Trend Onboarding](https://github.com/revfactory/ai-trend-onboarding) ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)) by Minho Hwang — the design, layout patterns, and agent architecture were modified for this project's domain. Special thanks to Minho Hwang for creating these excellent tools.
 
 Thanks to the robotics lab students at Seoul National University for insightful discussions that shaped the content of this work.
 
