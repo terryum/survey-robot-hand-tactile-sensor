@@ -107,7 +107,7 @@ bash scripts/build_pdf.sh en
 
 이 프로젝트는 황민호님의 [Harness](https://github.com/revfactory/harness)(Apache 2.0) 스킬을 이용하여 제작되었으며, 웹사이트 구조는 [AI Trend Onboarding](https://github.com/revfactory/ai-trend-onboarding)([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko))의 디자인, 레이아웃 패턴, 에이전트 아키텍처를 본 프로젝트의 도메인에 맞게 변형하여 사용했습니다. 훌륭한 도구를 만들어주신 황민호님께 감사드립니다.
 
-함께 디스커션 해주신 서울대학교 로보틱스 연구실 학생분들께도 감사의 말씀을 전합니다.
+이 책은 서울대학교와 코스맥스의 공동연구 세미나 자료를 초기 Seed로 하여 만들어졌습니다. 세미나를 준비해주신 하준수, 송지환, 박태준, 정인철 박사과정과 공동연구를 함께해주신 박종우, 박용래, 조규진 교수님께 감사의 말씀 드립니다.
 
 이 저작물의 제작에 AI 도구가 활용되었습니다. 문헌 조사, 콘텐츠 생성, 원고 작성에 Claude(Anthropic)를, 그림 생성에 Gemini(Google)를 사용했습니다.
 

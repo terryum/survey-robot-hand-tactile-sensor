@@ -107,7 +107,7 @@ bash scripts/build_pdf.sh en
 
 This project was built using [Harness](https://github.com/revfactory/harness) (Apache 2.0) by Minho Hwang. The website structure was adapted from [AI Trend Onboarding](https://github.com/revfactory/ai-trend-onboarding) ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)) by Minho Hwang — the design, layout patterns, and agent architecture were modified for this project's domain. Special thanks to Minho Hwang for creating these excellent tools.
 
-Thanks to the robotics lab students at Seoul National University for insightful discussions that shaped the content of this work.
+This book was seeded from joint research seminar materials between Seoul National University and Cosmax. Special thanks to Junsoo Ha, Jihwan Song, Taejoon Park, and Incheol Jeong (PhD candidates) for preparing the seminars, and to Professors Jongwoo Park, Yongrae Park, and Kyujin Cho for their collaboration.
 
 AI tools were used in the production of this work: Claude (Anthropic) for literature survey, content generation, and manuscript preparation, and Gemini (Google) for figure generation.
 
