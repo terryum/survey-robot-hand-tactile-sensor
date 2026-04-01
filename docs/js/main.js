@@ -132,19 +132,4 @@ document.addEventListener('click', function(e) {
   });
 })();
 
-// --- Home button: iframe-aware navigation ---
-(function initHomeButton() {
-  document.querySelectorAll('.header-home').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      var isEmbedded = (window !== window.top);
-      if (isEmbedded) {
-        // Inside iframe on terry.artlab.ai → navigate parent to Projects
-        window.top.location.href = 'https://terry.artlab.ai/projects';
-      } else {
-        // Standalone on vercel.app → open homepage in new tab
-        window.open('https://terry.artlab.ai', '_blank');
-      }
-    });
-  });
-})();
+// Home button logic moved to header.js (shared component)
