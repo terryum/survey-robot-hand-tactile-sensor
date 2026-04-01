@@ -554,17 +554,8 @@ def build_chapter_html(ch_num, lang, chapters_meta, book_dir, lang_code):
     else:
         next_link = '<span class="placeholder"></span>'
 
-    # Sources section
+    # Sources section removed per user request
     sources_html = ''
-    if sources:
-        items = '\n'.join(f'      <li>{s}</li>' for s in sources)
-        sources_html = f'''
-    <div class="chapter-sources">
-      <h3>{sources_title}</h3>
-      <ul>
-{items}
-      </ul>
-    </div>'''
 
     html = f'''<!DOCTYPE html>
 <html lang="{lang_code}">

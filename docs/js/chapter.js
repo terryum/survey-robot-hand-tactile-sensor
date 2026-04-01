@@ -104,4 +104,47 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+
+  // --- Citation click: scroll reference to top with offset ---
+  document.querySelectorAll('a.cite-link').forEach((link, idx) => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      // Give this citation a unique back-anchor
+      const backId = 'cite-back-' + targetId;
+      this.closest('sup').id = backId;
+
+      // Scroll reference into view with padding at top
+      const headerOffset = 100;
+      const y = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+
+      // Highlight the reference
+      target.classList.add('ref-highlight');
+      setTimeout(() => target.classList.remove('ref-highlight'), 3000);
+
+      // Inject back-link if not already present
+      if (!target.querySelector('.cite-backlink')) {
+        const backLink = document.createElement('a');
+        backLink.className = 'cite-backlink';
+        backLink.href = '#' + backId;
+        backLink.textContent = ' ↩';
+        backLink.title = 'Back to text';
+        backLink.addEventListener('click', function(ev) {
+          ev.preventDefault();
+          const backTarget = document.getElementById(backId);
+          if (backTarget) {
+            const by = backTarget.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: by, behavior: 'smooth' });
+            backTarget.classList.add('cite-back-highlight');
+            setTimeout(() => backTarget.classList.remove('cite-back-highlight'), 2000);
+          }
+        });
+        target.appendChild(backLink);
+      }
+    });
+  });
 });
