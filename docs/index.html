@@ -6,11 +6,20 @@
   <title>Tactile Sensing for Dexterous Robot Hand Manipulation</title>
   <link rel="stylesheet" href="css/style.css">
   <script>
-    // Auto-redirect based on saved preference
+    // Auto-redirect based on saved preference or browser locale
     (function() {
       var lang = localStorage.getItem('preferred-lang');
-      if (lang === 'en') { window.location.replace('en/'); }
-      else if (lang === 'ko') { window.location.replace('ko/'); }
+      if (lang === 'en') { window.location.replace('en/'); return; }
+      if (lang === 'ko') { window.location.replace('ko/'); return; }
+      // First visit: detect browser locale
+      var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      if (browserLang.startsWith('ko')) {
+        localStorage.setItem('preferred-lang', 'ko');
+        window.location.replace('ko/');
+      } else {
+        localStorage.setItem('preferred-lang', 'en');
+        window.location.replace('en/');
+      }
     })();
   </script>
 </head>
