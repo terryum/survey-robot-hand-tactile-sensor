@@ -118,15 +118,30 @@ body::before {
 }
 
 .header-icon {
-  color: var(--text-secondary);
+  color: #ccc;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
-  transition: color 0.3s;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s;
 }
-.header-icon:hover { color: #fff; }
-.header-icon svg { fill: var(--text-secondary); transition: fill 0.3s; }
+.header-icon:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.2);
+}
+.header-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: #ccc;
+  transition: fill 0.3s;
+}
 .header-icon:hover svg { fill: #fff; }
 
 .lang-toggle {
