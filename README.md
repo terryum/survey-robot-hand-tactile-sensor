@@ -109,7 +109,7 @@ This project was built using [Harness](https://github.com/revfactory/harness) (A
 
 This book was seeded from joint research seminar materials between Seoul National University and Cosmax. Special thanks to Junsoo Ha, Jihwan Song, Taejoon Park, and Incheol Jeong (PhD candidates) for preparing the seminars, and to Professors Frank Chongwoo Park, Yong-Lae Park, and Kyujin Cho for their collaboration.
 
-AI tools were used in the production of this work: Claude (Opus 4.6) for literature survey, content generation, and manuscript preparation, and [gemini-3-image-generation](https://github.com/anthropics/claude-code/tree/main/.claude/skills) skill (Gemini 3 Pro Image) for figure generation.
+AI tools were used in the production of this work: Claude (Opus 4.6) for literature survey, content generation, and manuscript preparation, and [gemini-3-image-generation](https://mcpmarket.com/ko/tools/skills/gemini-3-pro-image-generation) skill (Gemini 3 Pro Image) for figure generation.
 
 ## License
 
