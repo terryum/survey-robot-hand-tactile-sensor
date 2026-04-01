@@ -1,4 +1,4 @@
-**🇰🇷 [한국어 README](README_ko.md)** | 🇺🇸 English
+English | [한국어](README_ko.md)
 
 # Tactile Sensing for Dexterous Robot Hand Manipulation: A Comprehensive Survey
 

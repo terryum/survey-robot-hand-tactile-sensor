@@ -1,4 +1,4 @@
-🇰🇷 한국어 | **🇺🇸 [English README](README.md)**
+[English](README.md) | 한국어
 
 # 로봇 손의 정교한 조작을 위한 촉각 센싱: 종합 서베이
 
