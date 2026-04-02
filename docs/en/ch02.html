@@ -81,24 +81,153 @@
 <p>Tactile sensors convert physical contact into electrical signals through various transduction mechanisms. Building on the taxonomy established by Dahiya et al. <sup><a class="cite-link" href="#ch2-ref-1" title="2010">[1]</a></sup>, we review the principal approaches.</p>
 <h3>2.1.1 Piezoresistive</h3>
 <p>These sensors measure changes in material resistance caused by contact. Their simplicity and low cost make them among the most widely used. Sundaram et al. <sup><a class="cite-link" href="#ch2-ref-9" title="2019">[9]</a></sup> deployed 548 piezoresistive sensors on a human hand (the STAG glove), recording force distributions during grasping at high spatial resolution (<em>Nature</em>, 2019).</p>
-<p><strong>Strengths</strong>: Low cost, simple construction, high sensitivity</p>
-<p><strong>Limitations</strong>: Hysteresis, temperature dependence, drift under repeated use</p>
+<p><strong>Commercial Products</strong>:</p>
+<table class="styled-table">
+<thead><tr>
+<th></th>
+<th></th>
+</tr></thead><tbody>
+<tr>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/interlink_fsr400.png">Interlink FSR 400</a></td>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/tekscan_flexiforce_a201.png">Tekscan FlexiForce A201</a></td>
+</tr>
+<tr>
+<td>Interlink FSR 400</td>
+<td>Tekscan FlexiForce A201</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Interlink FSR 400</strong>: Single-zone FSR based on Polymer Thick Film (PTF) technology — resistance decreases with increasing force.</li>
+<li><strong>Tekscan FlexiForce A201</strong>: Ultra-thin piezoresistive force sensor with 4.4 N / 111 N / 445 N range options.</li>
+</ul>
+<figure>
+  <img src="../assets/figures/ch02/commercial_sensors/sensible_robotics.png" alt="Sensible Robotics 80-taxel tactile array" loading="lazy" onerror="this.src='../assets/figures/ch02/commercial_sensors/sensible_robotics.png'">
+  <figcaption>Sensible Robotics 80-taxel tactile array</figcaption>
+</figure>
+<ul>
+<li><strong>Sensible Robotics</strong>: An 80-taxel piezoresistive tactile array with ~2 mm pitch, measuring forces from <0.1 N to 100 N at up to 1 kHz, with >80 dB dynamic range, 12-bit output, 1M+ cycle durability, and I2C/SPI/USB/UART/CAN interfaces.</li>
+</ul>
+<p><strong>Strengths</strong>: Low cost, simple construction, high sensitivity, thin form factor for easy attachment to robot fingers/grippers</p>
+<p><strong>Limitations</strong>: Hysteresis, temperature dependence, drift under repeated use, difficulty with absolute force measurement</p>
 <h3>2.1.2 Capacitive</h3>
 <p>Capacitive sensors detect changes in capacitance between two electrodes. Murphy et al.<sup><a class="cite-link" href="#ch2-ref-6" title="al. 2025">[6]</a></sup> implemented teaching by demonstration with 102 capacitive sensors. A notable advantage is proximity sensing — the ability to detect approaching objects before contact.</p>
-<p><strong>Strengths</strong>: High sensitivity, low power consumption, proximity sensing</p>
-<p><strong>Limitations</strong>: Susceptibility to electromagnetic interference (EMI), wiring complexity</p>
+<p><strong>Commercial Products</strong>:</p>
+<table class="styled-table">
+<thead><tr>
+<th></th>
+<th></th>
+</tr></thead><tbody>
+<tr>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/robotiq_tsf85.png">Robotiq TSF-85</a></td>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/pps_robotact.png">PPS RoboTact</a></td>
+</tr>
+<tr>
+<td>Robotiq TSF-85</td>
+<td>PPS RoboTact</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Robotiq TSF-85</strong>: Capacitive array-based sensor with 28 taxels, 1000 Hz sampling, and 0–225 N range.</li>
+<li><strong>PPS (Pressure Profile Systems) RoboTact</strong>: Flexible capacitive tactile sensing system.</li>
+</ul>
+<p><strong>Strengths</strong>: High sensitivity, repeatability, stability; well-suited for static force/pressure distribution measurement; design flexibility; proximity sensing</p>
+<p><strong>Limitations</strong>: Parasitic capacitance, long-wire noise, front-end electronics complexity; susceptibility to EMI</p>
 <h3>2.1.3 Optical — Vision-Based Tactile Sensors</h3>
 <p>These sensors image the deformation of a transparent gel or elastomer using an embedded camera, extracting contact information from the resulting images. This approach has become the <strong>dominant paradigm</strong> in tactile robotics research — discussed in detail in Section 2.2.</p>
 <h3>2.1.4 Magnetic</h3>
 <p>Combinations of magnets with Hall-effect or magnetoresistive sensors measure deformation. ReSkin <sup><a class="cite-link" href="#ch2-ref-7" title="Bhirangi et al., 2021">[7]</a></sup> introduced a magnetic elastomer tactile skin costing less than $6 per unit, 2-3 mm thick, and durable for 50,000+ interactions. The key innovation is separating electronics from the passive sensing surface. AnySkin <sup><a class="cite-link" href="#ch2-ref-8" title="Bhirangi et al., 2024">[8]</a></sup> advanced this idea to achieve <strong>12-second replacement</strong> without recalibration, maintaining 92% slip detection accuracy.</p>
 <blockquote class="key-paper"><strong>Key Paper</strong>: Bhirangi, R., Hellebrekers, T., Majidi, C., & Gupta, A. (2021). "ReSkin: Versatile, Replaceable, Lasting Tactile Skins." <em>arXiv preprint</em>.
 A magnetic elastomer-based, low-cost ($6/unit), replaceable tactile skin offering a practical answer to the sensor durability challenge in industrial settings.</blockquote>
+<p><strong>Commercial Products</strong>:</p>
+<table class="styled-table">
+<thead><tr>
+<th></th>
+<th></th>
+</tr></thead><tbody>
+<tr>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/xela_uskin.png">XELA uSkin</a></td>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/reskin.png">ReSkin</a></td>
+</tr>
+<tr>
+<td>XELA uSkin</td>
+<td>ReSkin</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>XELA uSkin</strong>: Three-axis tactile sensing in a thin, soft package. Up to 64 sensing points per module, 0.1 gf resolution, 500 Hz sampling, measuring both shear and normal forces per sensing point.</li>
+</ul>
 <p>The OSMO glove<sup><a class="cite-link" href="#ch2-ref-27" title="glove 2025">[27]</a></sup> uses 12 three-axis magnetic sensors to simultaneously measure normal and shear forces, with MuMetal shielding to suppress external magnetic interference (<a href="ch06.html">Chapter 6.3</a>).</p>
 <h3>2.1.5 Piezoelectric</h3>
 <p>Piezoelectric materials (PZT, PVDF) generate charge under deformation. These sensors excel at detecting dynamic changes — vibration and texture — rather than static forces, serving as functional analogs of Pacinian corpuscles. Combined with energy harvesting, self-powered sensors become feasible <sup><a class="cite-link" href="#ch2-ref-12" title="Yu et al., 2025">[12]</a></sup>.</p>
+<p><strong>Commercial Products</strong>:</p>
 <figure>
-  <img src="../assets/figures/ch02/fig_2_1_transduction_principles_darkmode.png" alt="Figure 2.1: Comparison of five tactile sensor transduction principles — piezoresistive, capacitive, optical, magnetic, piezoelectric." loading="lazy" onerror="this.src='../assets/figures/ch02/fig_2_1_transduction_principles_technical.png'">
-  <figcaption>Figure 2.1: Comparison of five tactile sensor transduction principles — piezoresistive, capacitive, optical, magnetic, piezoelectric.</figcaption>
+  <img src="../assets/figures/ch02/commercial_sensors/te_dt1_028k.png" alt="TE Connectivity DT1-028K" loading="lazy" onerror="this.src='../assets/figures/ch02/commercial_sensors/te_dt1_028k.png'">
+  <figcaption>TE Connectivity DT1-028K</figcaption>
+</figure>
+<ul>
+<li><strong>TE Connectivity DT1-028K</strong>: Piezo film sensor element with high sensitivity to mechanical stimuli, excelling at vibration, impact, and transient sensing. Limited in static force measurement — surface charges neutralize over time, making sustained load reading difficult.</li>
+</ul>
+<h3>2.1.6 Strain-Gauge / MEMS</h3>
+<p>Strain-gauge sensors measure micro-deformations of elastic bodies under external force as changes in electrical resistance. Widely used as 6-axis force/torque (F/T) sensors, they offer high accuracy and resolution.</p>
+<p><strong>Commercial Products</strong>:</p>
+<table class="styled-table">
+<thead><tr>
+<th></th>
+<th></th>
+</tr></thead><tbody>
+<tr>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/ati_nano17.png">ATI Nano17</a></td>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/adin_miniature_ft.png">Adin Miniature FT</a></td>
+</tr>
+<tr>
+<td>ATI Nano17</td>
+<td>Adin Miniature FT</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>ATI Nano17</strong>: A compact commercial 6-axis F/T sensor (17 mm diameter, 14.5 mm height) with silicon strain gauges and high SNR.</li>
+<li><strong>Adin Miniature FT</strong>: An even smaller 6-axis F/T sensor (15 mm diameter, 10.5 mm height).</li>
+</ul>
+<p><strong>Strengths</strong>: High accuracy, resolution, and calibration quality; well-suited for wrist/fingertip F/T sensing</p>
+<p><strong>Limitations</strong>: Better suited for point F/T sensing than wide-area soft tactile skin; high cost and poor scalability for large-area coverage</p>
+<h3>2.1.7 Fluidic / Pneumatic</h3>
+<p>These sensors measure contact forces through pressure changes in internal fluid (liquid or air). When external force deforms the fluid chamber, embedded pressure sensors detect the change. This approach provides compliance close to human fingertip contact behavior.</p>
+<p><strong>Commercial Products</strong>:</p>
+<table class="styled-table">
+<thead><tr>
+<th></th>
+<th></th>
+</tr></thead><tbody>
+<tr>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/syntouch_biotac.png">SynTouch BioTac</a></td>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/allegro_v5_plus_pressure.png">Allegro Hand V5 Plus</a></td>
+</tr>
+<tr>
+<td>SynTouch BioTac</td>
+<td>Allegro Hand V5 Plus fingertip pressure sensor</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>SynTouch BioTac</strong>: A multimodal sensor that simultaneously detects force, vibration, and temperature using fluid pressure and skin deformation. Its rigid core + skin + fluid architecture produces contact behavior close to a human fingertip.</li>
+<li><strong>Allegro Hand V5 Plus fingertip pressure sensor</strong>: A pneumatic tactile sensor using capacitive pressure sensing for omnidirectional contact detection.</li>
+</ul>
+<p><strong>Strengths</strong>: Good compliance; human-like contact behavior; excellent for fragile object handling, slip detection, and texture recognition</p>
+<p><strong>Limitations</strong>: Complex chamber/fluid/sealing/packaging structures result in larger volume and higher integration difficulty than thin-film arrays. <strong>Internal fluid leakage causing corrosion</strong> is a frequently reported practical issue</p>
+<h3>2.1.8 Thermal</h3>
+<p>Thermal sensors measure thermal gradients to discriminate the material properties of contacted objects. Heater-thermistor combinations detect differences in heat transfer between the sensor and the object.</p>
+<p><strong>Commercial Products</strong>:</p>
+<figure>
+  <img src="../assets/figures/ch02/commercial_sensors/syntouch_biotac_sp.png" alt="SynTouch BioTac SP" loading="lazy" onerror="this.src='../assets/figures/ch02/commercial_sensors/syntouch_biotac_sp.png'">
+  <figcaption>SynTouch BioTac SP</figcaption>
+</figure>
+<ul>
+<li><strong>SynTouch BioTac SP</strong>: Provides the BioTac's thermal modality in a compact single-phalanx form factor.</li>
+</ul>
+<p><strong>Strengths</strong>: Useful for discriminating materials (metal, plastic, wood); strong for thermal cue-based material recognition</p>
+<p><strong>Limitations</strong>: Thermal channel is slower than force channels; significantly affected by ambient temperature and contact duration</p>
+<figure>
+  <img src="../assets/figures/ch02/fig_2_1_transduction_principles_darkmode.png" alt="Figure 2.1: Comparison of eight tactile sensor transduction principles." loading="lazy" onerror="this.src='../assets/figures/ch02/fig_2_1_transduction_principles_technical.png'">
+  <figcaption>Figure 2.1: Comparison of eight tactile sensor transduction principles.</figcaption>
 </figure>
 <h3>Transduction Comparison</h3>
 <table class="styled-table">
@@ -109,6 +238,9 @@ A magnetic elastomer-based, low-cost ($6/unit), replaceable tactile skin offerin
 <th>Optical/Vision</th>
 <th>Magnetic</th>
 <th>Piezoelectric</th>
+<th>Strain-Gauge</th>
+<th>Fluidic</th>
+<th>Thermal</th>
 </tr></thead><tbody>
 <tr>
 <td><strong>Spatial resolution</strong></td>
@@ -116,6 +248,9 @@ A magnetic elastomer-based, low-cost ($6/unit), replaceable tactile skin offerin
 <td>Medium</td>
 <td>Very high</td>
 <td>Low-Medium</td>
+<td>Low</td>
+<td>Low (point)</td>
+<td>Medium</td>
 <td>Low</td>
 </tr>
 <tr>
@@ -125,6 +260,9 @@ A magnetic elastomer-based, low-cost ($6/unit), replaceable tactile skin offerin
 <td>Medium</td>
 <td>Medium</td>
 <td>Wide (dynamic)</td>
+<td>Very wide</td>
+<td>Medium</td>
+<td>—</td>
 </tr>
 <tr>
 <td><strong>Multi-axis</strong></td>
@@ -133,6 +271,9 @@ A magnetic elastomer-based, low-cost ($6/unit), replaceable tactile skin offerin
 <td>Excellent</td>
 <td>Excellent</td>
 <td>Difficult</td>
+<td>Excellent (6-axis)</td>
+<td>Possible</td>
+<td>—</td>
 </tr>
 <tr>
 <td><strong>Durability</strong></td>
@@ -141,6 +282,9 @@ A magnetic elastomer-based, low-cost ($6/unit), replaceable tactile skin offerin
 <td>Low (gel wear)</td>
 <td>High</td>
 <td>High</td>
+<td>Very high</td>
+<td>Moderate (leakage)</td>
+<td>Moderate</td>
 </tr>
 <tr>
 <td><strong>Cost</strong></td>
@@ -149,6 +293,9 @@ A magnetic elastomer-based, low-cost ($6/unit), replaceable tactile skin offerin
 <td>Medium</td>
 <td>Low</td>
 <td>Medium</td>
+<td>High</td>
+<td>High</td>
+<td>High</td>
 </tr>
 <tr>
 <td><strong>Size</strong></td>
@@ -157,16 +304,23 @@ A magnetic elastomer-based, low-cost ($6/unit), replaceable tactile skin offerin
 <td>Bulky (camera)</td>
 <td>Compact</td>
 <td>Compact</td>
+<td>Compact</td>
+<td>Bulky (fluid)</td>
+<td>Compact</td>
 </tr>
 <tr>
 <td><strong>Representative</strong></td>
-<td>STAG</td>
-<td>—</td>
+<td>FSR 400, STAG</td>
+<td>Robotiq TSF-85</td>
 <td>GelSight, DIGIT</td>
-<td>ReSkin, OSMO</td>
-<td>—</td>
+<td>ReSkin, XELA uSkin</td>
+<td>DT1-028K</td>
+<td>ATI Nano17</td>
+<td>BioTac</td>
+<td>BioTac SP</td>
 </tr>
 </tbody></table>
+<blockquote class=""><strong>Quick Selection Guide</strong>: Best general-purpose: <strong>capacitive</strong>. Richest information for research: <strong>optical/vision-based</strong>. For shear/slip: <strong>magnetic</strong>. For vibration/micro-slip only: <strong>piezoelectric</strong>. For biomimetic fingertips: <strong>fluidic/pneumatic</strong>.</blockquote>
 <hr>
 </section>
 <section id="sec-2-2" class="content-section">
@@ -361,6 +515,7 @@ A comprehensive review of force measurement approaches in vision-based tactile s
   <li id="ch2-ref-26" value="26">Various. (2025). Recent advances in tactile sensing technologies for human-robot interaction. <em>Sensors International</em>. https://doi.org/10.1016/j.sintl.2025.100345</li>
   <li id="ch2-ref-27" value="27">Yin, J., Qi, H., Wi, Y., Kundu, S., Lambeta, M., Yang, W., Wang, C., Wu, T., Malik, J., & Hellebrekers, T. (2025). OSMO: Open-source tactile glove for human-to-robot skill transfer. <em>arXiv preprint</em>. arXiv:2512.08920.</li>
   <li id="ch2-ref-28" value="28">Albini, A., Kaboli, M., Cannata, G., & Maiolino, P. (2025). Representing data in robotic tactile perception — A review. <em>arXiv preprint</em> (submitted to IEEE Trans. Robot.). arXiv:2510.10804.</li>
+  <li id="ch2-ref-29" value="29">Choi, S. (Korea University). (2026). Tactile Sensors — Commercial tactile sensor product comparison. Commercial product examples, photos, specifications, practical experience notes (e.g., fluid sensor leakage/corrosion), and Sections 2.1.6–2.1.8 are based on this reference. https://www.notion.so/2026-03-26-Tactile-sensors-32f13b6f5ea48054a5e3f4cee07f00c6</li>
 </ol>
 </section>
 

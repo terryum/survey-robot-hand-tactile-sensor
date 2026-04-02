@@ -81,24 +81,153 @@
 <p>촉각 센서는 물리적 접촉을 전기 신호로 변환하는 방식에 따라 분류됩니다. Dahiya et al. <sup><a class="cite-link" href="#ch2-ref-1" title="2010">[1]</a></sup>의 체계를 기반으로, 주요 변환 방식을 정리합니다.</p>
 <h3>2.1.1 압저항식 (Piezoresistive)</h3>
 <p>접촉에 의한 물질의 저항 변화를 측정합니다. 구조가 단순하고 비용이 낮아 가장 널리 사용되는 방식 중 하나입니다. Sundaram et al. <sup><a class="cite-link" href="#ch2-ref-9" title="2019">[9]</a></sup>의 STAG 글로브는 548개의 압저항 센서를 인간 손에 배치하여, 물체를 잡을 때의 힘 분포를 높은 공간 해상도로 기록했습니다 (<em>Nature</em>, 2019).</p>
-<p><strong>장점</strong>: 낮은 비용, 단순 구조, 높은 감도</p>
-<p><strong>단점</strong>: 히스테리시스(hysteresis), 온도 의존성, 반복 사용 시 드리프트</p>
+<p><strong>상용 제품 사례</strong>:</p>
+<table class="styled-table">
+<thead><tr>
+<th></th>
+<th></th>
+</tr></thead><tbody>
+<tr>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/interlink_fsr400.png">Interlink FSR 400</a></td>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/tekscan_flexiforce_a201.png">Tekscan FlexiForce A201</a></td>
+</tr>
+<tr>
+<td>Interlink FSR 400</td>
+<td>Tekscan FlexiForce A201</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Interlink FSR 400</strong>: 단일 감지 영역의 FSR(Force Sensing Resistor). PTF(Polymer Thick Film) 기반으로, 힘이 커질수록 저항이 감소하는 원리를 이용합니다.</li>
+<li><strong>Tekscan FlexiForce A201</strong>: 초박형 piezoresistive force sensor. 4.4 N / 111 N / 445 N 범위 옵션을 제공합니다.</li>
+</ul>
+<figure>
+  <img src="../assets/figures/ch02/commercial_sensors/sensible_robotics.png" alt="Sensible Robotics 80-taxel 촉각 어레이" loading="lazy" onerror="this.src='../assets/figures/ch02/commercial_sensors/sensible_robotics.png'">
+  <figcaption>Sensible Robotics 80-taxel 촉각 어레이</figcaption>
+</figure>
+<ul>
+<li><strong>Sensible Robotics</strong>: 약 2 mm pitch의 80-taxel piezoresistive 촉각 어레이. 0.1 N 미만부터 100 N까지의 힘을 최대 1 kHz로 측정하며, 80 dB 이상의 dynamic range, 12-bit 출력, 100만 회 내구성, I2C/SPI/USB/UART/CAN 인터페이스를 지원합니다.</li>
+</ul>
+<p><strong>장점</strong>: 낮은 비용, 단순 구조, 높은 감도, 얇은 폼 팩터로 로봇 손가락/그리퍼에 부착이 용이</p>
+<p><strong>단점</strong>: 히스테리시스(hysteresis), 온도 의존성, 반복 사용 시 드리프트, 절대 힘(absolute force) 측정이 어려움</p>
 <h3>2.1.2 정전용량식 (Capacitive)</h3>
 <p>두 전극 사이의 정전용량(capacitance) 변화를 측정합니다. Murphy et al.<sup><a class="cite-link" href="#ch2-ref-6" title="al. 2025">[6]</a></sup>은 102개의 정전용량 센서를 이용한 시연 학습(teaching by demonstration)을 구현했습니다. 정전용량식 센서는 힘의 크기뿐 아니라 근접(proximity) 감지도 가능하여, 접촉 전 사전 정보를 제공할 수 있습니다.</p>
-<p><strong>장점</strong>: 높은 감도, 낮은 전력 소비, 근접 감지 가능</p>
-<p><strong>단점</strong>: 전자기 간섭(EMI)에 취약, 배선 복잡도</p>
+<p><strong>상용 제품 사례</strong>:</p>
+<table class="styled-table">
+<thead><tr>
+<th></th>
+<th></th>
+</tr></thead><tbody>
+<tr>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/robotiq_tsf85.png">Robotiq TSF-85</a></td>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/pps_robotact.png">PPS RoboTact</a></td>
+</tr>
+<tr>
+<td>Robotiq TSF-85</td>
+<td>PPS RoboTact</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Robotiq TSF-85</strong>: Capacitive array 기반 센서. 28 taxels, 1000 Hz 샘플링, 0–225 N 범위를 제공합니다.</li>
+<li><strong>PPS (Pressure Profile Systems) RoboTact</strong>: Capacitive tactile sensing 기반의 유연한 촉각 센서 시스템입니다.</li>
+</ul>
+<p><strong>장점</strong>: 높은 감도, 반복성(repeatability), 안정성(stability)이 강점. 정적 힘/압력 분포를 안정적으로 읽기 좋으며, 설계 유연성과 근접 감지가 가능</p>
+<p><strong>단점</strong>: 기생 정전용량(parasitic capacitance), 긴 배선 노이즈, 프론트엔드 전자 회로의 복잡도가 높으며, 전자기 간섭(EMI)에 취약</p>
 <h3>2.1.3 광학식 — 비전 기반 촉각 센서 (Optical / Vision-Based)</h3>
 <p>투명한 젤(gel) 또는 탄성체의 변형을 내장 카메라로 촬영하여 접촉 정보를 추출합니다. 이 방식이 현재 촉각 로봇 연구의 <strong>주류 패러다임</strong>이 되었습니다 — 다음 섹션(2.2)에서 상세히 다룹니다.</p>
 <h3>2.1.4 자기식 (Magnetic)</h3>
 <p>자석과 홀 효과(Hall effect) 센서 또는 자기 저항(magnetoresistive) 센서의 조합으로 변형을 측정합니다. ReSkin <sup><a class="cite-link" href="#ch2-ref-7" title="Bhirangi et al., 2021">[7]</a></sup>은 자기 탄성체(magnetic elastomer) 기반으로 단가 $6 미만, 두께 2-3mm, 50,000회 이상 반복 사용 가능한 촉각 피부를 구현했습니다. 전자부와 감지부의 분리 설계가 핵심으로, AnySkin <sup><a class="cite-link" href="#ch2-ref-8" title="Bhirangi et al., 2024">[8]</a></sup>은 이를 발전시켜 <strong>12초 만에 교체 가능</strong>한 플러그 앤 플레이 방식을 달성했습니다 — 재교정(recalibration) 없이 92%의 미끄러짐 감지 정확도를 유지합니다.</p>
 <blockquote class="key-paper"><strong>핵심 논문</strong>: Bhirangi, R., Hellebrekers, T., Majidi, C., & Gupta, A. (2021). "ReSkin: Versatile, Replaceable, Lasting Tactile Skins." <em>arXiv preprint</em>.
 자기 탄성체 기반의 저비용($6/개), 교체 가능한 촉각 피부. 산업 환경에서의 센서 내구성 문제에 대한 실용적 해답을 제시했습니다.</blockquote>
+<p><strong>상용 제품 사례</strong>:</p>
+<table class="styled-table">
+<thead><tr>
+<th></th>
+<th></th>
+</tr></thead><tbody>
+<tr>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/xela_uskin.png">XELA uSkin</a></td>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/reskin.png">ReSkin</a></td>
+</tr>
+<tr>
+<td>XELA uSkin</td>
+<td>ReSkin</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>XELA uSkin</strong>: 얇고 유연한 패키지에서 3축 촉각 센싱을 제공. 센싱 포인트당 전단력과 법선력을 동시에 측정하며, 모듈당 최대 64 sensing points, 0.1 gf 해상도, 500 Hz 샘플링을 지원합니다.</li>
+</ul>
 <p>OSMO 글로브 [2025]는 12개의 3축 자기 센서를 사용하여 법선력과 전단력을 동시에 측정하며, MuMetal 차폐로 외부 자기장 간섭을 억제합니다 (<a href="ch06.html">Chapter 6.3 참조</a>).</p>
 <h3>2.1.5 압전식 (Piezoelectric)</h3>
 <p>압전 물질(PZT, PVDF 등)이 변형 시 전하를 생성하는 원리를 이용합니다. 정적 힘보다 동적 변화(진동, 질감)의 감지에 적합하여, Pacinian 소체의 기능적 등가물로 활용됩니다. 에너지 하베스팅(energy harvesting)과 결합하면 자가 전원 센서도 가능합니다 <sup><a class="cite-link" href="#ch2-ref-12" title="Yu et al., 2025">[12]</a></sup>.</p>
+<p><strong>상용 제품 사례</strong>:</p>
 <figure>
-  <img src="../assets/figures/ch02/fig_2_1_transduction_principles_darkmode.png" alt="Figure 2.1: 5가지 촉각 센서 변환 원리의 비교 — 압저항식, 정전용량식, 광학식, 자기식, 압전식." loading="lazy" onerror="this.src='../assets/figures/ch02/fig_2_1_transduction_principles_technical.png'">
-  <figcaption>Figure 2.1: 5가지 촉각 센서 변환 원리의 비교 — 압저항식, 정전용량식, 광학식, 자기식, 압전식.</figcaption>
+  <img src="../assets/figures/ch02/commercial_sensors/te_dt1_028k.png" alt="TE Connectivity DT1-028K" loading="lazy" onerror="this.src='../assets/figures/ch02/commercial_sensors/te_dt1_028k.png'">
+  <figcaption>TE Connectivity DT1-028K</figcaption>
+</figure>
+<ul>
+<li><strong>TE Connectivity DT1-028K</strong>: Piezo film sensor element. 기계 자극에 대한 감도가 높고, 진동/충격/과도 현상(transient) 감지에 강합니다. 다만 정적 힘 측정에는 한계가 있으며, 표면 전하가 중화되어 지속적인 하중을 안정적으로 읽기 어렵습니다.</li>
+</ul>
+<h3>2.1.6 스트레인 게이지 / MEMS (Strain-Gauge / MEMS)</h3>
+<p>스트레인 게이지 기반 센서는 외력에 의한 탄성체의 미세 변형을 전기 저항 변화로 측정합니다. 특히 6축 힘/토크(F/T) 센서로 널리 사용되며, 높은 정확도와 해상도가 강점입니다.</p>
+<p><strong>상용 제품 사례</strong>:</p>
+<table class="styled-table">
+<thead><tr>
+<th></th>
+<th></th>
+</tr></thead><tbody>
+<tr>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/ati_nano17.png">ATI Nano17</a></td>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/adin_miniature_ft.png">Adin Miniature FT</a></td>
+</tr>
+<tr>
+<td>ATI Nano17</td>
+<td>Adin Miniature FT</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>ATI Nano17</strong>: 직경 17 mm, 높이 14.5 mm의 소형 상용 6축 F/T 센서. Silicon strain gauge와 높은 SNR이 강점입니다.</li>
+<li><strong>Adin Miniature FT</strong>: 직경 15 mm, 높이 10.5 mm로 Nano17보다 더 소형화된 6축 F/T 센서입니다.</li>
+</ul>
+<p><strong>장점</strong>: 정확도, 해상도, 교정(calibration) 품질이 우수. 손목/손가락 끝 F/T 측정에 적합</p>
+<p><strong>단점</strong>: 넓은 면적의 soft tactile skin 용도보다는 포인트 F/T 센싱에 특화. 가격이 높고 대면적 확장성이 불리</p>
+<h3>2.1.7 유체/공압식 (Fluidic / Pneumatic)</h3>
+<p>유체(액체 또는 공기)의 압력 변화를 통해 접촉력을 측정합니다. 내부 유체가 외력에 의해 변형되면 압력 센서가 이를 감지하는 구조로, 인간 손가락 끝의 접촉 거동에 가까운 유연성(compliance)을 구현할 수 있습니다.</p>
+<p><strong>상용 제품 사례</strong>:</p>
+<table class="styled-table">
+<thead><tr>
+<th></th>
+<th></th>
+</tr></thead><tbody>
+<tr>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/syntouch_biotac.png">SynTouch BioTac</a></td>
+<td>!<a href="../../assets/figures/ch02/commercial_sensors/allegro_v5_plus_pressure.png">Allegro Hand V5 Plus</a></td>
+</tr>
+<tr>
+<td>SynTouch BioTac</td>
+<td>Allegro Hand V5 Plus fingertip pressure sensor</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>SynTouch BioTac</strong>: 힘, 진동, 온도를 동시에 감지하며, 유체 압력(fluid pressure)과 피부 변형(skin deformation)을 결합한 다감각 센서입니다. Rigid core + skin + fluid 구조로 인간 손가락 끝에 가까운 감지 특성을 제공합니다.</li>
+<li><strong>Allegro Hand V5 Plus fingertip pressure sensor</strong>: 정전용량 압력 센서를 이용한 공압 기반(pneumatic) 촉각 센서. 전방위(omnidirectional) 접촉 감지가 가능합니다.</li>
+</ul>
+<p><strong>장점</strong>: 유연성(compliance)이 좋고, 인간 손가락 끝에 가까운 접촉 거동 구현 가능. 취약한 물체 파지, 미끄러짐, 질감 인식에 강점</p>
+<p><strong>단점</strong>: Chamber/유체/실링/패키징 구조가 복잡하여 thin-film array 대비 부피가 크고 통합 난이도가 높음. 실사용 시 <strong>내부 액체 누출로 인한 부식</strong>이 빈번한 문제로 보고됨</p>
+<h3>2.1.8 열감지식 (Thermal)</h3>
+<p>열 구배(thermal gradient)를 측정하여 접촉 물체의 재질(thermal property)을 판별합니다. 히터(heater)와 서미스터(thermistor)를 조합하여 물체와의 열전달 차이를 감지합니다.</p>
+<p><strong>상용 제품 사례</strong>:</p>
+<figure>
+  <img src="../assets/figures/ch02/commercial_sensors/syntouch_biotac_sp.png" alt="SynTouch BioTac SP" loading="lazy" onerror="this.src='../assets/figures/ch02/commercial_sensors/syntouch_biotac_sp.png'">
+  <figcaption>SynTouch BioTac SP</figcaption>
+</figure>
+<ul>
+<li><strong>SynTouch BioTac SP</strong>: BioTac의 열감지 모달리티를 소형 단일 지절(single-phalanx) 형태로 제공합니다.</li>
+</ul>
+<p><strong>장점</strong>: 금속/플라스틱/목재 등 재질 구분에 유리. 열적 단서(thermal cue) 기반 재질 인식(material recognition)에 강점</p>
+<p><strong>단점</strong>: 열 채널은 힘 채널보다 응답이 느리고, 주변 온도와 접촉 지속 시간의 영향을 많이 받음</p>
+<figure>
+  <img src="../assets/figures/ch02/fig_2_1_transduction_principles_darkmode.png" alt="Figure 2.1: 8가지 촉각 센서 변환 원리의 비교." loading="lazy" onerror="this.src='../assets/figures/ch02/fig_2_1_transduction_principles_technical.png'">
+  <figcaption>Figure 2.1: 8가지 촉각 센서 변환 원리의 비교.</figcaption>
 </figure>
 <h3>변환 방식 비교</h3>
 <table class="styled-table">
@@ -109,6 +238,9 @@
 <th>광학/비전 기반</th>
 <th>자기식</th>
 <th>압전식</th>
+<th>스트레인 게이지</th>
+<th>유체/공압식</th>
+<th>열감지식</th>
 </tr></thead><tbody>
 <tr>
 <td><strong>공간 해상도</strong></td>
@@ -116,6 +248,9 @@
 <td>중간</td>
 <td>매우 높음</td>
 <td>낮음-중간</td>
+<td>낮음</td>
+<td>낮음 (포인트)</td>
+<td>중간</td>
 <td>낮음</td>
 </tr>
 <tr>
@@ -125,6 +260,9 @@
 <td>중간</td>
 <td>중간</td>
 <td>넓음 (동적)</td>
+<td>매우 넓음</td>
+<td>중간</td>
+<td>—</td>
 </tr>
 <tr>
 <td><strong>다축 감지</strong></td>
@@ -133,6 +271,9 @@
 <td>우수</td>
 <td>우수</td>
 <td>어려움</td>
+<td>우수 (6축)</td>
+<td>가능</td>
+<td>—</td>
 </tr>
 <tr>
 <td><strong>내구성</strong></td>
@@ -141,6 +282,9 @@
 <td>낮음 (젤 마모)</td>
 <td>높음</td>
 <td>높음</td>
+<td>매우 높음</td>
+<td>보통 (누출)</td>
+<td>보통</td>
 </tr>
 <tr>
 <td><strong>비용</strong></td>
@@ -149,6 +293,9 @@
 <td>중간</td>
 <td>낮음</td>
 <td>중간</td>
+<td>높음</td>
+<td>높음</td>
+<td>높음</td>
 </tr>
 <tr>
 <td><strong>크기</strong></td>
@@ -157,16 +304,23 @@
 <td>대형 (카메라)</td>
 <td>소형</td>
 <td>소형</td>
+<td>소형</td>
+<td>대형 (유체)</td>
+<td>소형</td>
 </tr>
 <tr>
 <td><strong>대표 센서</strong></td>
-<td>STAG</td>
-<td>—</td>
+<td>FSR 400, STAG</td>
+<td>Robotiq TSF-85</td>
 <td>GelSight, DIGIT</td>
-<td>ReSkin, OSMO</td>
-<td>—</td>
+<td>ReSkin, XELA uSkin</td>
+<td>DT1-028K</td>
+<td>ATI Nano17</td>
+<td>BioTac</td>
+<td>BioTac SP</td>
 </tr>
 </tbody></table>
+<blockquote class=""><strong>용도별 간단 선택 가이드</strong>: 가장 무난한 범용형은 <strong>정전용량식</strong>, 가장 정보량이 큰 연구형은 <strong>광학/비전 기반</strong>, 전단력/미끄러짐까지 보려면 <strong>자기식</strong>, 진동/미세 미끄러짐만 잡으려면 <strong>압전식</strong>, 생체모방(biomimetic) 손가락 끝을 원하면 <strong>유체/공압식</strong> 계열을 추천합니다.</blockquote>
 <hr>
 </section>
 <section id="sec-2-2" class="content-section">
@@ -361,6 +515,7 @@
   <li id="ch2-ref-26" value="26">Various. (2025). Recent advances in tactile sensing technologies for human-robot interaction. <em>Sensors International</em>. https://doi.org/10.1016/j.sintl.2025.100345</li>
   <li id="ch2-ref-27" value="27">Yin, J., Qi, H., Wi, Y., Kundu, S., Lambeta, M., Yang, W., Wang, C., Wu, T., Malik, J., & Hellebrekers, T. (2025). OSMO: Open-source tactile glove for human-to-robot skill transfer. <em>arXiv preprint</em>. arXiv:2512.08920.</li>
   <li id="ch2-ref-28" value="28">Albini, A., Kaboli, M., Cannata, G., & Maiolino, P. (2025). Representing data in robotic tactile perception — A review. <em>arXiv preprint</em> (submitted to IEEE Trans. Robot.). arXiv:2510.10804.</li>
+  <li id="ch2-ref-29" value="29">최성준 (고려대학교). (2026). Tactile Sensors — 상용 촉각 센서 제품 비교 자료. Section 2.1의 상용 제품 사례, 사진, 스펙, 실사용 경험 (유체 센서 누출/부식 등) 및 Section 2.1.6–2.1.8의 내용은 이 자료를 기반으로 작성되었습니다. https://www.notion.so/2026-03-26-Tactile-sensors-32f13b6f5ea48054a5e3f4cee07f00c6</li>
 </ol>
 </section>
 
