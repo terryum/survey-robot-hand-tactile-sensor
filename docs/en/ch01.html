@@ -76,7 +76,7 @@
 <h2>1.1 The Biology of Touch</h2>
 <p>The human hand contains roughly 17,000 mechanoreceptors that detect contact, pressure, vibration, and temperature changes <sup><a class="cite-link" href="#ch1-ref-1" title="Johansson & Flanagan, 2009">[1]</a></sup>. Receptor density at the fingertip reaches approximately 240 units/cm², enabling discrimination of surface features as fine as 13 μm <sup><a class="cite-link" href="#ch1-ref-2" title="Kandel et al., 2000">[2]</a></sup>.</p>
 <figure>
-  <img src="../assets/figures/ch01/fig_1_1_mechanoreceptors_darkmode.png" alt="Figure 1.1: Distribution of mechanoreceptors in the human hand. Adapted from Johansson & Flanagan (2009)." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_1_mechanoreceptors_technical.png'">
+  <a href="../assets/figures/ch01/fig_1_1_mechanoreceptors_technical.png" target="_blank"><img src="../assets/figures/ch01/fig_1_1_mechanoreceptors_darkmode.png" alt="Figure 1.1: Distribution of mechanoreceptors in the human hand. Adapted from Johansson & Flanagan (2009)." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_1_mechanoreceptors_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 1.1: Distribution of mechanoreceptors in the human hand. Adapted from Johansson & Flanagan (2009).</figcaption>
 </figure>
 <p>The four receptor types and their robotic analogs are summarized below:</p>
@@ -121,7 +121,7 @@ A foundational neuroscience study revealing how fingertip tactile signals are en
 <h2>1.2 A Brief History of Tactile Robotics</h2>
 <p>The history of tactile robotics stretches back to the 1960s. The survey "Tactile Robotics: Past and Future" [2025] organizes this history into four generations:</p>
 <figure>
-  <img src="../assets/figures/ch01/fig_1_2_timeline_darkmode.png" alt="Figure 1.2: Four generations of tactile robotics (1965-2026). Adapted from Tactile Robotics: Past and Future (2025)." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_2_timeline_technical.png'">
+  <a href="../assets/figures/ch01/fig_1_2_timeline_technical.png" target="_blank"><img src="../assets/figures/ch01/fig_1_2_timeline_darkmode.png" alt="Figure 1.2: Four generations of tactile robotics (1965-2026). Adapted from Tactile Robotics: Past and Future (2025)." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_2_timeline_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 1.2: Four generations of tactile robotics (1965-2026). Adapted from Tactile Robotics: Past and Future (2025).</figcaption>
 </figure>
 <p><strong>Generation 1 — Origins (1965-1980s)</strong>: Early tactile sensors provided simple binary contact detection. Force-torque sensors began appearing on industrial robot arms, but fingertip-level sensing remained a distant goal.</p>
@@ -131,7 +131,7 @@ The de facto starting reference for tactile robotics research, covering transduc
 <p><strong>Generation 3 — The Tactile Winter (2000-2015)</strong>: The explosive progress of computer vision (deep learning, CNNs) drew the research community's attention toward vision-based robotics, and tactile research entered a relative plateau. Nonetheless, high-performance sensors such as BioTac ($5K-10K) kept foundational research alive.</p>
 <p><strong>Generation 4 — Renaissance (2015-present)</strong>: The introduction of GelSight <sup><a class="cite-link" href="#ch1-ref-4" title="Yuan et al., 2017">[4]</a></sup> marked a turning point. Vision-based optical tactile sensors delivered dramatically higher resolution at far lower cost — DIGIT <sup><a class="cite-link" href="#ch1-ref-5" title="Lambeta et al., 2020">[5]</a></sup> brought the price to roughly $350. By 2024, Digit 360 offered 8.3 million taxels and 18+ sensing modalities in a single multimodal artificial fingertip <sup><a class="cite-link" href="#ch1-ref-6" title="Lambeta et al., 2024">[6]</a></sup>, prompting claims that the "ImageNet moment" for touch has arrived.</p>
 <figure>
-  <img src="../assets/figures/ch01/fig_1_3_sensor_evolution_darkmode.png" alt="Figure 1.3: Evolution of tactile sensor technology — GelSight (2017) → DIGIT (2020) → Digit 360 (2024). Source: Yuan et al. (2017), Lambeta et al. (2020, 2024)." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_3_sensor_evolution_technical.png'">
+  <a href="../assets/figures/ch01/fig_1_3_sensor_evolution_technical.png" target="_blank"><img src="../assets/figures/ch01/fig_1_3_sensor_evolution_darkmode.png" alt="Figure 1.3: Evolution of tactile sensor technology — GelSight (2017) → DIGIT (2020) → Digit 360 (2024). Source: Yuan et al. (2017), Lambeta et al. (2020, 2024)." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_3_sensor_evolution_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 1.3: Evolution of tactile sensor technology — GelSight (2017) → DIGIT (2020) → Digit 360 (2024). Source: Yuan et al. (2017), Lambeta et al. (2020, 2024).</figcaption>
 </figure>
 <p>Another catalyst for this renaissance has been the <strong>democratization of low-cost robot hands</strong>. LEAP Hand <sup><a class="cite-link" href="#ch1-ref-7" title="Shaw et al., 2023">[7]</a></sup> introduced a 3D-printable anthropomorphic hand at $2,000, making dexterous manipulation research accessible without the $16,000 Allegro Hand or the $100,000+ Shadow Hand (<a href="ch04.html">Chapter 4</a>).</p>
@@ -145,7 +145,7 @@ The de facto starting reference for tactile robotics research, covering transduc
 <h3>1.3.2 Slip Detection</h3>
 <p>Detecting incipient slip requires real-time monitoring of shear force changes. Universal Slip Detection<sup><a class="cite-link" href="#ch1-ref-17" title="Detection 2025">[17]</a></sup> achieved 97% accuracy with 1.26 ms latency using tactile feedback. Cameras can only observe slip <em>after</em> it has occurred; tactile sensors detect it <em>as it begins</em>.</p>
 <figure>
-  <img src="../assets/figures/ch01/fig_1_4_vision_vs_tactile_darkmode.png" alt="Figure 1.4: Temporal response comparison — vision vs. tactile for slip detection." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_4_vision_vs_tactile_technical.png'">
+  <a href="../assets/figures/ch01/fig_1_4_vision_vs_tactile_technical.png" target="_blank"><img src="../assets/figures/ch01/fig_1_4_vision_vs_tactile_darkmode.png" alt="Figure 1.4: Temporal response comparison — vision vs. tactile for slip detection." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_4_vision_vs_tactile_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 1.4: Temporal response comparison — vision vs. tactile for slip detection.</figcaption>
 </figure>
 <h3>1.3.3 Deformable Objects</h3>
@@ -166,7 +166,7 @@ The de facto starting reference for tactile robotics research, covering transduc
 <h3>1.4.4 Texture Recognition</h3>
 <p>Tactile recognition of surface microstructure provides material property information that vision cannot easily capture. GelSight <sup><a class="cite-link" href="#ch1-ref-4" title="Yuan et al., 2017">[4]</a></sup> reconstructs 3D contact surfaces at micrometer resolution via photometric stereo, while UniTouch <sup><a class="cite-link" href="#ch1-ref-13" title="Yang et al., 2024">[13]</a></sup> aligns touch with vision, language, and audio through contrastive learning, enabling zero-shot texture classification (<a href="ch03.html">Chapter 3.6</a>).</p>
 <figure>
-  <img src="../assets/figures/ch01/fig_1_5_four_capabilities_darkmode.png" alt="Figure 1.5: Four core capabilities enabled by tactile sensing — force modulation, slip detection, pose estimation, texture recognition." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_5_four_capabilities_technical.png'">
+  <a href="../assets/figures/ch01/fig_1_5_four_capabilities_technical.png" target="_blank"><img src="../assets/figures/ch01/fig_1_5_four_capabilities_darkmode.png" alt="Figure 1.5: Four core capabilities enabled by tactile sensing — force modulation, slip detection, pose estimation, texture recognition." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_5_four_capabilities_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 1.5: Four core capabilities enabled by tactile sensing — force modulation, slip detection, pose estimation, texture recognition.</figcaption>
 </figure>
 <hr>
@@ -216,7 +216,7 @@ The de facto starting reference for tactile robotics research, covering transduc
 </tbody></table>
 <p>However, as Billard & Kragic <sup><a class="cite-link" href="#ch1-ref-9" title="2019">[9]</a></sup> observed, current factory deployments remain at the <strong>logistics (pick-move-place)</strong> level. <strong>Dexterous assembly</strong> — the domain where tactile feedback is essential — has not yet reached production floors. Bridging this gap is a central challenge for tactile robotics over the next five years (→ Chapters 12, 13).</p>
 <figure>
-  <img src="../assets/figures/ch01/fig_1_6_manipulation_spectrum_darkmode.png" alt="Figure 1.6: The manipulation capability spectrum — logistics (current industrial deployment) vs. dexterous manipulation (research level)." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_6_manipulation_spectrum_technical.png'">
+  <a href="../assets/figures/ch01/fig_1_6_manipulation_spectrum_technical.png" target="_blank"><img src="../assets/figures/ch01/fig_1_6_manipulation_spectrum_darkmode.png" alt="Figure 1.6: The manipulation capability spectrum — logistics (current industrial deployment) vs. dexterous manipulation (research level)." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_6_manipulation_spectrum_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 1.6: The manipulation capability spectrum — logistics (current industrial deployment) vs. dexterous manipulation (research level).</figcaption>
 </figure>
 <h3>1.5.2 The Korean Ecosystem</h3>
@@ -236,7 +236,7 @@ The de facto starting reference for tactile robotics research, covering transduc
 <h2>1.6 Book Organization and Roadmap</h2>
 <p>This book comprises four parts and thirteen chapters, painting the full picture of tactile-based robotic manipulation from foundations to applications.</p>
 <figure>
-  <img src="../assets/figures/ch01/fig_1_7_book_roadmap_darkmode.png" alt="Figure 1.7: Book roadmap — relationships among 4 Parts and 13 Chapters." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_7_book_roadmap_technical.png'">
+  <a href="../assets/figures/ch01/fig_1_7_book_roadmap_technical.png" target="_blank"><img src="../assets/figures/ch01/fig_1_7_book_roadmap_darkmode.png" alt="Figure 1.7: Book roadmap — relationships among 4 Parts and 13 Chapters." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_7_book_roadmap_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 1.7: Book roadmap — relationships among 4 Parts and 13 Chapters.</figcaption>
 </figure>
 <p><strong>Part I — Foundations of Touch (Chapters 1-3)</strong>: Beginning with the motivation and biological foundations of touch (this chapter), we cover the physics of sensor technology (Chapter 2) and the representation and collection of tactile data (Chapter 3). These three chapters establish the vocabulary and concepts for all subsequent discussion.</p>

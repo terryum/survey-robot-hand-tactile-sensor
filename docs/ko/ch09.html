@@ -108,7 +108,7 @@
 <h3>TacEx (2024)</h3>
 <p>TacEx는 GelSight 시뮬레이션을 Isaac Sim에 통합하여, 연구 워크플로우 전체(센서 시뮬레이션 → 정책 학습 → 전이)를 하나의 플랫폼에서 수행할 수 있게 합니다 (<a href="ch11.html">Chapter 11.2 참조</a>).</p>
 <figure>
-  <img src="../assets/figures/ch09/fig_9_1_sim_engines_darkmode.png" alt="Figure 9.1: 촉각 시뮬레이션 엔진 비교." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_1_sim_engines_technical.png'">
+  <a href="../assets/figures/ch09/fig_9_1_sim_engines_technical.png" target="_blank"><img src="../assets/figures/ch09/fig_9_1_sim_engines_darkmode.png" alt="Figure 9.1: 촉각 시뮬레이션 엔진 비교." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_1_sim_engines_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 9.1: 촉각 시뮬레이션 엔진 비교.</figcaption>
 </figure>
 <table class="styled-table">
@@ -179,7 +179,7 @@
 <blockquote class="key-paper"><strong>핵심 논문</strong>: Handa, A., et al. (2023). "DeXtreme: Transfer of Agile In-hand Manipulation from Simulation to Reality." <em>ICRA 2023</em>.
 Allegro Hand + Isaac Gym에서 ADR로 sim-to-real 다지 조작 달성. 물리/비물리 파라미터의 동시 랜덤화가 핵심입니다.</blockquote>
 <figure>
-  <img src="../assets/figures/ch09/fig_9_2_dextreme_adr_darkmode.png" alt="Figure 9.2: DeXtreme의 ADR. Source: DeXtreme (ICRA 2023)." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_2_dextreme_adr_technical.png'">
+  <a href="../assets/figures/ch09/fig_9_2_dextreme_adr_technical.png" target="_blank"><img src="../assets/figures/ch09/fig_9_2_dextreme_adr_darkmode.png" alt="Figure 9.2: DeXtreme의 ADR. Source: DeXtreme (ICRA 2023)." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_2_dextreme_adr_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 9.2: DeXtreme의 ADR. Source: DeXtreme (ICRA 2023).</figcaption>
 </figure>
 <hr>
@@ -202,7 +202,7 @@ Allegro Hand + Isaac Gym에서 ADR로 sim-to-real 다지 조작 달성. 물리/�
 <p>이 연구의 핵심 교훈: <strong>정밀한 촉각 시뮬레이션보다 단순화된 모델 + 넓은 커버리지가 sim-to-real 전이에 더 효과적</strong>일 수 있습니다.</p>
 <p>Sim-to-Real RL for Humanoid Dexterous Manipulation<sup><a class="cite-link" href="#ch9-ref-6" title="Manipulation 2025">[6]</a></sup>은 환경 모델링, 보상 설계, 정책 학습, 전이의 실용적 레시피를 제공합니다.</p>
 <figure>
-  <img src="../assets/figures/ch09/fig_9_3_tactile_sim2real_challenges_darkmode.png" alt="Figure 9.3: 촉각 sim-to-real의 도전." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_3_tactile_sim2real_challenges_technical.png'">
+  <a href="../assets/figures/ch09/fig_9_3_tactile_sim2real_challenges_technical.png" target="_blank"><img src="../assets/figures/ch09/fig_9_3_tactile_sim2real_challenges_darkmode.png" alt="Figure 9.3: 촉각 sim-to-real의 도전." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_3_tactile_sim2real_challenges_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 9.3: 촉각 sim-to-real의 도전.</figcaption>
 </figure>
 <hr>
@@ -233,7 +233,7 @@ Allegro Hand + Isaac Gym에서 ADR로 sim-to-real 다지 조작 달성. 물리/�
 <blockquote class="key-paper"><strong>핵심 논문</strong>: Si, Z., et al. (2025). "ExoStart: From 10 Exoskeleton Demos to Dexterous Robot Manipulation." <em>Various</em>.
 10회 외골격 시연 → MuJoCo dynamics filtering → auto-curriculum RL → zero-shot real 전이. 데이터 효율적 Real-Sim-Real의 대표 사례.</blockquote>
 <figure>
-  <img src="../assets/figures/ch09/fig_9_4_exostart_pipeline_darkmode.png" alt="Figure 9.4: Real-Sim-Real 루프 — ExoStart의 파이프라인. Source: ExoStart (2025)." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_4_exostart_pipeline_technical.png'">
+  <a href="../assets/figures/ch09/fig_9_4_exostart_pipeline_technical.png" target="_blank"><img src="../assets/figures/ch09/fig_9_4_exostart_pipeline_darkmode.png" alt="Figure 9.4: Real-Sim-Real 루프 — ExoStart의 파이프라인. Source: ExoStart (2025)." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_4_exostart_pipeline_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 9.4: Real-Sim-Real 루프 — ExoStart의 파이프라인. Source: ExoStart (2025).</figcaption>
 </figure>
 <hr>
@@ -249,7 +249,7 @@ Allegro Hand + Isaac Gym에서 ADR로 sim-to-real 다지 조작 달성. 물리/�
 <p>촉각 sim-to-real의 가장 어려운 부분입니다. FEM은 정밀하지만 계산 비용이 높고, 해석적 모델은 근사가 거칩니다. DiffTactile은 미분 가능한 접촉 모델로 이 격차를 줄이려 하지만, 실시간 시뮬레이션에는 아직 부족합니다.</p>
 <p>Human-in-the-Loop RL [2025, <em>Science Robotics</em>]는 인간 직관과 자율 정책 최적화를 결합하여, sim-to-real 격차가 클 때에도 정밀 조작을 달성합니다.</p>
 <figure>
-  <img src="../assets/figures/ch09/fig_9_5_gap_sources_darkmode.png" alt="Figure 9.5: Sim-to-Real 격차의 세 근원." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_5_gap_sources_technical.png'">
+  <a href="../assets/figures/ch09/fig_9_5_gap_sources_technical.png" target="_blank"><img src="../assets/figures/ch09/fig_9_5_gap_sources_darkmode.png" alt="Figure 9.5: Sim-to-Real 격차의 세 근원." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_5_gap_sources_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 9.5: Sim-to-Real 격차의 세 근원.</figcaption>
 </figure>
 <hr>
@@ -269,7 +269,7 @@ Allegro Hand + Isaac Gym에서 ADR로 sim-to-real 다지 조작 달성. 물리/�
 <li>물성(material property) 다양성의 시뮬레이션이 어려움</li>
 </ul>
 <figure>
-  <img src="../assets/figures/ch09/fig_9_6_synthetic_data_darkmode.png" alt="Figure 9.6: 합성 데이터의 위력과 한계." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_6_synthetic_data_technical.png'">
+  <a href="../assets/figures/ch09/fig_9_6_synthetic_data_technical.png" target="_blank"><img src="../assets/figures/ch09/fig_9_6_synthetic_data_darkmode.png" alt="Figure 9.6: 합성 데이터의 위력과 한계." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_6_synthetic_data_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 9.6: 합성 데이터의 위력과 한계.</figcaption>
 </figure>
 <hr>

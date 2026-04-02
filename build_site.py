@@ -346,6 +346,13 @@ def md_to_html_content(md_text, ch_num, lang):
         text = re.sub(r'\*(.+?)\*', r'<em>\1</em>', text)
         # Code
         text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+        # Images (must come before links to avoid ![alt](src) being parsed as link)
+        def inline_img(m):
+            alt = m.group(1)
+            src = m.group(2)
+            src = src.replace('../../assets/figures/', '../assets/figures/')
+            return f'<a href="{src}" target="_blank"><img src="{src}" alt="{alt}" loading="lazy" style="max-height:160px;width:auto;border-radius:8px;cursor:zoom-in"></a>'
+        text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', inline_img, text)
         # Links
         text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
         # Cross-references like (→ Chapter N)
@@ -467,8 +474,14 @@ def md_to_html_content(md_text, ch_num, lang):
             src = src.replace('../../assets/figures/', '../assets/figures/')
             # Use darkmode version if available
             src_dark = src.replace('_technical.png', '_darkmode.png')
-            html_parts.append(f'<figure>')
-            html_parts.append(f'  <img src="{src_dark}" alt="{caption}" loading="lazy" onerror="this.src=\'{src}\'">')
+            # Commercial sensor photos: smaller, clickable
+            is_commercial = 'commercial_sensors' in src
+            if is_commercial:
+                html_parts.append(f'<figure class="commercial-sensor">')
+                html_parts.append(f'  <a href="{src}" target="_blank"><img src="{src}" alt="{caption}" loading="lazy" style="max-height:200px;width:auto;cursor:zoom-in"></a>')
+            else:
+                html_parts.append(f'<figure>')
+                html_parts.append(f'  <a href="{src}" target="_blank"><img src="{src_dark}" alt="{caption}" loading="lazy" onerror="this.src=\'{src}\'" style="cursor:zoom-in"></a>')
             html_parts.append(f'  <figcaption>{process_inline(caption)}</figcaption>')
             html_parts.append(f'</figure>')
             continue

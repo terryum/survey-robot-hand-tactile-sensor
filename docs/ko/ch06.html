@@ -82,7 +82,7 @@
 <li>SMPL 전신 모델과 통합 가능 (SMPL+H)</li>
 </ul>
 <figure>
-  <img src="../assets/figures/ch06/fig_6_1_mano_model_darkmode.png" alt="Figure 6.1: MANO 손 모델. Source: Romero et al. (2017)." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_1_mano_model_technical.png'">
+  <a href="../assets/figures/ch06/fig_6_1_mano_model_technical.png" target="_blank"><img src="../assets/figures/ch06/fig_6_1_mano_model_darkmode.png" alt="Figure 6.1: MANO 손 모델. Source: Romero et al. (2017)." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_1_mano_model_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 6.1: MANO 손 모델. Source: Romero et al. (2017).</figcaption>
 </figure>
 <p>MANO는 사실상 모든 인간 손 관련 연구의 기초 모델입니다. 손 자세 추정(hand pose estimation), 인간-로봇 리타게팅(retargeting), 촉각 전이(UniTacHand의 MANO UV 맵)에서 핵심 역할을 합니다 (<a href="ch10.html">Chapter 10.4 참조</a>).</p>
@@ -135,7 +135,7 @@
 </tbody></table>
 <p>NVIDIA가 GTC 2026에서 Manus를 Isaac Teleop의 공식 데이터 글로브로 지정한 것은 산업 표준화의 신호입니다.</p>
 <figure>
-  <img src="../assets/figures/ch06/fig_6_2_tracking_gloves_darkmode.png" alt="Figure 6.2: 모션 트래킹 글로브 비교." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_2_tracking_gloves_technical.png'">
+  <a href="../assets/figures/ch06/fig_6_2_tracking_gloves_technical.png" target="_blank"><img src="../assets/figures/ch06/fig_6_2_tracking_gloves_darkmode.png" alt="Figure 6.2: 모션 트래킹 글로브 비교." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_2_tracking_gloves_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 6.2: 모션 트래킹 글로브 비교.</figcaption>
 </figure>
 <h3>한국 연구: ML 기반 착용형 센서</h3>
@@ -165,7 +165,7 @@
 인간과 로봇 손 모두에 사용 가능한 12개 3축 자기 촉각 글로브. 교차 체현 촉각 전이의 새로운 패러다임을 제시합니다.</blockquote>
 <p>세미나 2의 핵심 인사이트: <strong>인간/로봇에 동일 센싱 글로브를 사용하면 cross-embodiment 문제 단순화</strong>. 인간의 시연에서 촉각 데이터를 수집하고, 같은 글로브를 로봇 손에 장착하여 정책을 학습하면, 촉각 도메인 갭(tactile domain gap)이 제거됩니다 (<a href="ch10.html">Chapter 10.4 참조</a>).</p>
 <figure>
-  <img src="../assets/figures/ch06/fig_6_3_osmo_bridge_darkmode.png" alt="Figure 6.3: OSMO 글로브의 Embodiment Bridge 개념. Source: OSMO (2025)." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_3_osmo_bridge_technical.png'">
+  <a href="../assets/figures/ch06/fig_6_3_osmo_bridge_technical.png" target="_blank"><img src="../assets/figures/ch06/fig_6_3_osmo_bridge_darkmode.png" alt="Figure 6.3: OSMO 글로브의 Embodiment Bridge 개념. Source: OSMO (2025)." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_3_osmo_bridge_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 6.3: OSMO 글로브의 Embodiment Bridge 개념. Source: OSMO (2025).</figcaption>
 </figure>
 <h3>FSR 최적화 접근</h3>
@@ -184,7 +184,7 @@
 <li>원격 조작 대비 <strong>3.2배 빠른</strong> 데이터 수집</li>
 </ul>
 <figure>
-  <img src="../assets/figures/ch06/fig_6_4_dexumi_darkmode.png" alt="Figure 6.4: DexUMI의 이중 격차 해소. Source: DexUMI (2025)." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_4_dexumi_technical.png'">
+  <a href="../assets/figures/ch06/fig_6_4_dexumi_technical.png" target="_blank"><img src="../assets/figures/ch06/fig_6_4_dexumi_darkmode.png" alt="Figure 6.4: DexUMI의 이중 격차 해소. Source: DexUMI (2025)." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_4_dexumi_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 6.4: DexUMI의 이중 격차 해소. Source: DexUMI (2025).</figcaption>
 </figure>
 <h3>ExoStart (2025)</h3>
@@ -213,7 +213,7 @@
 <p>ImMimic <sup><a class="cite-link" href="#ch6-ref-14" title="Liu et al., 2025">[14]</a></sup>은 대규모 인간 궤적(human trajectory)과 소수의 원격 조작 궤적(teleoperation trajectory)을 보간(interpolation)하여 데이터를 증강(augment)합니다. 세미나 1에서 논의된 바와 같이, 이 접근은 <strong>비싼 teleop data 대신 human data를 시너지적으로 활용</strong>하는 방향을 대표합니다 (<a href="ch10.html">Chapter 10.2 참조</a>).</p>
 <p>DexH2R<sup><a class="cite-link" href="#ch6-ref-15" title="DexH2R 2024">[15]</a></sup>은 태스크 지향 인간-로봇 다지 전이(task-oriented human-to-robot dexterous transfer)를 구현하여, 인간 시연의 의도를 로봇 동작으로 매핑합니다.</p>
 <figure>
-  <img src="../assets/figures/ch06/fig_6_5_collection_spectrum_darkmode.png" alt="Figure 6.5: 인간 손 데이터 수집 방법의 스펙트럼." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_5_collection_spectrum_technical.png'">
+  <a href="../assets/figures/ch06/fig_6_5_collection_spectrum_technical.png" target="_blank"><img src="../assets/figures/ch06/fig_6_5_collection_spectrum_darkmode.png" alt="Figure 6.5: 인간 손 데이터 수집 방법의 스펙트럼." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_5_collection_spectrum_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 6.5: 인간 손 데이터 수집 방법의 스펙트럼.</figcaption>
 </figure>
 <hr>
@@ -239,7 +239,7 @@
 <h3>Feel Robot Feels (2026)</h3>
 <p>촉각 피드백 어레이 글로브로 햅틱 루프를 완성하여, 조작자가 로봇이 느끼는 접촉을 직접 감지할 수 있습니다.</p>
 <figure>
-  <img src="../assets/figures/ch06/fig_6_6_teleop_comparison_darkmode.png" alt="Figure 6.6: 원격 조작 시스템 비교." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_6_teleop_comparison_technical.png'">
+  <a href="../assets/figures/ch06/fig_6_6_teleop_comparison_technical.png" target="_blank"><img src="../assets/figures/ch06/fig_6_6_teleop_comparison_darkmode.png" alt="Figure 6.6: 원격 조작 시스템 비교." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_6_teleop_comparison_technical.png'" style="cursor:zoom-in"></a>
   <figcaption>Figure 6.6: 원격 조작 시스템 비교.</figcaption>
 </figure>
 <table class="styled-table">
