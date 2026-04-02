@@ -778,6 +778,15 @@ blockquote strong {
   word-break: break-word;
 }
 
+.styled-table td img {
+  display: block;
+  margin: 0 auto;
+}
+
+.styled-table td:has(img) {
+  text-align: center;
+}
+
 .styled-table tbody tr:hover {
   background: rgba(255, 255, 255, 0.02);
 }
