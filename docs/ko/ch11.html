@@ -72,11 +72,11 @@
 <p><strong>3D-ViTac</strong> <sup><a class="cite-link" href="#ch11-ref-3" title="Huang et al., 2024">[3]</a></sup>: 3mm² 밀도 촉각 + 시각의 통합 3D 표현. Diffusion Policy로 85-90% 양손 성공률 (시각만 45-50%) (<a href="ch02.html">Chapter 2.4</a>).</p>
 <h3>힘-시각-언어 융합</h3>
 <p><strong>ForceVLA</strong> <sup><a class="cite-link" href="#ch11-ref-12" title="Yu et al., 2025">[12]</a></sup>: FVLMoE(4 expert MoE)로 힘-시각-언어 동적 라우팅. +23.2%p, 시각 가림 시 90% (<a href="ch07.html">Chapter 7.4, 8.4</a>).</p>
-<p><strong>Tactile-VLA</strong> [2025]: VLA의 사전학습 물리 지식을 촉각으로 해방 (<a href="ch08.html">Chapter 8.4</a>).</p>
+<p><strong>Tactile-VLA</strong><sup><a class="cite-link" href="#ch11-ref-5" title="Tactile-VLA 2025">[5]</a></sup>: VLA의 사전학습 물리 지식을 촉각으로 해방 (<a href="ch08.html">Chapter 8.4</a>).</p>
 <h3>표현 정렬</h3>
 <p><strong>UniTouch</strong> <sup><a class="cite-link" href="#ch11-ref-6" title="Yang et al., 2024">[6]</a></sup>: 대조 학습으로 촉각-시각-언어-오디오 정렬. 제로샷 분류 (<a href="ch03.html">Chapter 3.6</a>).</p>
 <p><strong>Sparsh</strong> <sup><a class="cite-link" href="#ch11-ref-7" title="Higuera et al., 2024">[7]</a></sup>: 460K+ 이미지 자기지도 촉각 Foundation Model (<a href="ch03.html">Chapter 3.6</a>).</p>
-<p><strong>VTV-LLM</strong> [2025]: 접촉 전 물리 속성(마찰, 유연성) 추론. 시각-촉각 비디오 + LLM으로 물성 예측.</p>
+<p><strong>VTV-LLM</strong><sup><a class="cite-link" href="#ch11-ref-8" title="VTV-LLM 2025">[8]</a></sup>: 접촉 전 물리 속성(마찰, 유연성) 추론. 시각-촉각 비디오 + LLM으로 물성 예측.</p>
 <h3>융합 아키텍처 비교</h3>
 <table class="styled-table">
 <thead><tr>
@@ -188,9 +188,9 @@
 <h3>촉각 센서 벤치마크의 부재</h3>
 <p>시각 인지(perception)에는 ImageNet, COCO 등 표준 벤치마크가 존재하지만, 촉각 센서에는 <strong>공인 벤치마크가 없습니다</strong>. 이는 센서 간 성능 비교를 어렵게 하며, 연구 재현성을 저해합니다.</p>
 <h3>데이터 포맷 표준화</h3>
-<p>Albini et al. [2025]의 6가지 데이터 구조(Chapter 3)가 de facto 표준 후보입니다. 촉각 데이터의 표준 포맷이 확립되면, 교차 센서/교차 연구실 데이터 공유가 가능해집니다.</p>
+<p>Albini et al.<sup><a class="cite-link" href="#ch11-ref-12" title="al. 2025">[12]</a></sup>의 6가지 데이터 구조(Chapter 3)가 de facto 표준 후보입니다. 촉각 데이터의 표준 포맷이 확립되면, 교차 센서/교차 연구실 데이터 공유가 가능해집니다.</p>
 <h3>교차 체현 평가 프레임워크</h3>
-<p>Open X-Embodiment [2024]가 제시한 교차 체현 평가 프레임워크는 다양한 로봇에서의 일관된 성능 비교를 가능하게 합니다.</p>
+<p>Open X-Embodiment<sup><a class="cite-link" href="#ch11-ref-14" title="X-Embodiment 2024">[14]</a></sup>가 제시한 교차 체현 평가 프레임워크는 다양한 로봇에서의 일관된 성능 비교를 가능하게 합니다.</p>
 <p>Multimodal Tactile-Vision for Housekeeping [<em>Nature Communications</em>, 2024]은 가사 환경에서 압력, 온도, 질감, 미끄러짐 + 시각의 다중 모달 통합을 구현한 end-to-end 사례입니다.</p>
 <figure>
   <img src="../assets/figures/ch11/fig_11_4_benchmarks_darkmode.png" alt="Figure 11.4: 벤치마크와 표준화 현황." loading="lazy" onerror="this.src='../assets/figures/ch11/fig_11_4_benchmarks_technical.png'">

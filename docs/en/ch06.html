@@ -92,7 +92,7 @@
 <h2>6.2 Motion Tracking Gloves: From Stretchable Sensors to Commercial Products</h2>
 <p>Seminar 2 (Taejoon) systematically reviewed the current state of motion tracking gloves.</p>
 <h3>Stretchable Liquid-Metal Sensor Glove (2024)</h3>
-<p>Published in <em>Nature Communications</em> [2024]:</p>
+<p>Published in <em>Nature Communications</em><sup><a class="cite-link" href="#ch6-ref-2" title="Communications 2024">[2]</a></sup>:</p>
 <ul>
 <li>9 eGaIn (eutectic gallium-indium) liquid-metal sensors</li>
 <li>9 DoF tracking, adapts to all hand sizes (one-size-fits-all)</li>
@@ -146,13 +146,13 @@ A 9-sensor eGaIn glove adapting to all hand sizes. The 4.02 mm fingertip error i
 <h2>6.3 Tactile Gloves: STAG, OSMO, and the Open-Source Approach</h2>
 <p>Beyond motion tracking, collecting <strong>tactile information</strong> during human grasping is the next step.</p>
 <h3>STAG (2019)</h3>
-<p>Sundaram et al. [2019] (<em>Nature</em>, 2019):</p>
+<p>Sundaram et al. <sup><a class="cite-link" href="#ch6-ref-3" title="2019">[3]</a></sup> (<em>Nature</em>, 2019):</p>
 <ul>
 <li><strong>548 piezoresistive sensors</strong>: High-resolution pressure distribution across the human hand</li>
 <li>Grasp-finger correlation analysis</li>
 <li>Pioneering tactile demonstration dataset for robot learning</li>
 </ul>
-<p>Ruppel et al. [2024] proposed a 169-sensor reduced version, exploring the trade-off between sensor count and information loss.</p>
+<p>Ruppel et al.<sup><a class="cite-link" href="#ch6-ref-21" title="al. 2024">[21]</a></sup> proposed a 169-sensor reduced version, exploring the trade-off between sensor count and information loss.</p>
 <h3>OSMO Glove (2025)</h3>
 <p>OSMO [arXiv:2512.08920] takes the innovative approach of using <strong>the same glove on both human and robot hands</strong>:</p>
 <ul>
@@ -169,14 +169,14 @@ A 12-sensor three-axis magnetic tactile glove usable on both human and robot han
   <figcaption>Figure 6.3: OSMO glove's Embodiment Bridge concept. Source: OSMO (2025).</figcaption>
 </figure>
 <h3>FSR Optimization</h3>
-<p>Tang et al. [2025] and Chen et al. [2025] addressed the optimal placement of FSR sensors, exploring how to extract maximum information from limited sensors — answering the "high spatial resolution vs. optimized sensor count/position" trade-off.</p>
+<p>Tang et al.<sup><a class="cite-link" href="#ch6-ref-5" title="al. 2025">[5]</a></sup> and Chen et al.<sup><a class="cite-link" href="#ch6-ref-5" title="al. 2025">[5]</a></sup> addressed the optimal placement of FSR sensors, exploring how to extract maximum information from limited sensors — answering the "high spatial resolution vs. optimized sensor count/position" trade-off.</p>
 <hr>
 </section>
 <section id="sec-6-4" class="content-section">
 <h2>6.4 Exoskeleton Approaches: DexUMI, ExoStart, DEXOP</h2>
 <p>Exoskeletons mechanically connect to the human hand, directly capturing motion.</p>
 <h3>DexUMI (2025)</h3>
-<p>Xu et al. [2025] — "Human Hand as Universal Interface":</p>
+<p>Xu et al.<sup><a class="cite-link" href="#ch6-ref-5" title="al. 2025">[5]</a></sup> — "Human Hand as Universal Interface":</p>
 <ul>
 <li>Wearable exoskeleton resolves the <strong>kinematic gap</strong></li>
 <li>SAM2 inpainting resolves the <strong>visual gap</strong> — erasing the human hand from camera images and replacing it with the robot hand</li>
@@ -188,7 +188,7 @@ A 12-sensor three-axis magnetic tactile glove usable on both human and robot han
   <figcaption>Figure 6.4: DexUMI's dual gap resolution. Source: DexUMI (2025).</figcaption>
 </figure>
 <h3>ExoStart (2025)</h3>
-<p>Si et al. [2025] learn dexterous manipulation policies from <strong>just 10 exoskeleton demonstrations</strong>:</p>
+<p>Si et al.<sup><a class="cite-link" href="#ch6-ref-5" title="al. 2025">[5]</a></sup> learn dexterous manipulation policies from <strong>just 10 exoskeleton demonstrations</strong>:</p>
 <ol>
 <li>~10 exoskeleton demos</li>
 <li>MuJoCo dynamics filtering</li>
@@ -198,7 +198,7 @@ A 12-sensor three-axis magnetic tactile glove usable on both human and robot han
 </ol>
 <p>This pipeline exemplifies Real-Sim-Real transfer (<a href="ch09.html">Chapter 9.4</a>).</p>
 <h3>DEXOP (2025)</h3>
-<p>DEXOP [2025] uses a four-bar linkage to <strong>directly mechanically couple</strong> human and robot fingers:</p>
+<p>DEXOP<sup><a class="cite-link" href="#ch6-ref-8" title="DEXOP 2025">[8]</a></sup> uses a four-bar linkage to <strong>directly mechanically couple</strong> human and robot fingers:</p>
 <ul>
 <li><strong>8x faster</strong> data collection than teleoperation</li>
 <li>Direct contact feedback</li>
@@ -211,7 +211,7 @@ A 12-sensor three-axis magnetic tactile glove usable on both human and robot han
 <h2>6.5 Learning from Internet Videos and Large-Scale Data</h2>
 <p>Shaw et al. [2024, CMU] proposed extracting human hand motions from internet videos and retargeting them to robot hands. The potential lies in <strong>scalability</strong> — millions of hand manipulation videos exist online, and converting them to robot learning data could fundamentally solve the teleoperation bottleneck.</p>
 <p>ImMimic <sup><a class="cite-link" href="#ch6-ref-14" title="Liu et al., 2025">[14]</a></sup> augments data by interpolating between large-scale human trajectories and a few teleoperation trajectories. As discussed in Seminar 1, this represents the direction of <strong>synergistically using human data instead of expensive teleop data</strong> (<a href="ch10.html">Chapter 10.2</a>).</p>
-<p>DexH2R [2024] implements task-oriented human-to-robot dexterous transfer, mapping the intent of human demonstrations to robot actions.</p>
+<p>DexH2R<sup><a class="cite-link" href="#ch6-ref-15" title="DexH2R 2024">[15]</a></sup> implements task-oriented human-to-robot dexterous transfer, mapping the intent of human demonstrations to robot actions.</p>
 <figure>
   <img src="../assets/figures/ch06/fig_6_5_collection_spectrum_darkmode.png" alt="Figure 6.5: Spectrum of human hand data collection methods." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_5_collection_spectrum_technical.png'">
   <figcaption>Figure 6.5: Spectrum of human hand data collection methods.</figcaption>

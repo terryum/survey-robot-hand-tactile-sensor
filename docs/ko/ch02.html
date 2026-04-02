@@ -78,13 +78,13 @@
 </section>
 <section id="sec-2-1" class="content-section">
 <h2>2.1 센서 물리: 변환 원리별 분류</h2>
-<p>촉각 센서는 물리적 접촉을 전기 신호로 변환하는 방식에 따라 분류됩니다. Dahiya et al. [2010]의 체계를 기반으로, 주요 변환 방식을 정리합니다.</p>
+<p>촉각 센서는 물리적 접촉을 전기 신호로 변환하는 방식에 따라 분류됩니다. Dahiya et al. <sup><a class="cite-link" href="#ch2-ref-1" title="2010">[1]</a></sup>의 체계를 기반으로, 주요 변환 방식을 정리합니다.</p>
 <h3>2.1.1 압저항식 (Piezoresistive)</h3>
-<p>접촉에 의한 물질의 저항 변화를 측정합니다. 구조가 단순하고 비용이 낮아 가장 널리 사용되는 방식 중 하나입니다. Sundaram et al. [2019]의 STAG 글로브는 548개의 압저항 센서를 인간 손에 배치하여, 물체를 잡을 때의 힘 분포를 높은 공간 해상도로 기록했습니다 (<em>Nature</em>, 2019).</p>
+<p>접촉에 의한 물질의 저항 변화를 측정합니다. 구조가 단순하고 비용이 낮아 가장 널리 사용되는 방식 중 하나입니다. Sundaram et al. <sup><a class="cite-link" href="#ch2-ref-9" title="2019">[9]</a></sup>의 STAG 글로브는 548개의 압저항 센서를 인간 손에 배치하여, 물체를 잡을 때의 힘 분포를 높은 공간 해상도로 기록했습니다 (<em>Nature</em>, 2019).</p>
 <p><strong>장점</strong>: 낮은 비용, 단순 구조, 높은 감도</p>
 <p><strong>단점</strong>: 히스테리시스(hysteresis), 온도 의존성, 반복 사용 시 드리프트</p>
 <h3>2.1.2 정전용량식 (Capacitive)</h3>
-<p>두 전극 사이의 정전용량(capacitance) 변화를 측정합니다. Murphy et al. [2025]은 102개의 정전용량 센서를 이용한 시연 학습(teaching by demonstration)을 구현했습니다. 정전용량식 센서는 힘의 크기뿐 아니라 근접(proximity) 감지도 가능하여, 접촉 전 사전 정보를 제공할 수 있습니다.</p>
+<p>두 전극 사이의 정전용량(capacitance) 변화를 측정합니다. Murphy et al.<sup><a class="cite-link" href="#ch2-ref-6" title="al. 2025">[6]</a></sup>은 102개의 정전용량 센서를 이용한 시연 학습(teaching by demonstration)을 구현했습니다. 정전용량식 센서는 힘의 크기뿐 아니라 근접(proximity) 감지도 가능하여, 접촉 전 사전 정보를 제공할 수 있습니다.</p>
 <p><strong>장점</strong>: 높은 감도, 낮은 전력 소비, 근접 감지 가능</p>
 <p><strong>단점</strong>: 전자기 간섭(EMI)에 취약, 배선 복잡도</p>
 <h3>2.1.3 광학식 — 비전 기반 촉각 센서 (Optical / Vision-Based)</h3>
@@ -173,19 +173,19 @@
 <h2>2.2 비전 기반 촉각 센서: GelSight에서 Digit 360까지</h2>
 <p>비전 기반 광학 촉각 센서(vision-based optical tactile sensor)는 2017년 GelSight의 등장 이후 촉각 연구의 주류가 되었습니다. 이 센서군의 핵심 원리는 <strong>광도 입체법(photometric stereo)</strong>입니다: 탄성 젤 표면에 내장된 LED가 빛을 비추고, 접촉에 의한 젤 변형을 카메라가 촬영하여 3D 접촉 지도(contact map)를 재구성합니다.</p>
 <h3>GelSight (2017)</h3>
-<p>Yuan, Dong, & Adelson [2017]이 MIT CSAIL에서 개발한 GelSight는 광도 입체법을 이용하여 접촉면의 3D 형상을 마이크로미터 수준으로 복원합니다. 이 센서는 촉각 연구에 "비전의 도구"를 가져왔다는 점에서 패러다임 전환적 기여를 했습니다 — 기존의 전기적 변환 방식과 달리, 이미지 처리와 딥러닝의 풍부한 도구 생태계를 직접 활용할 수 있게 되었습니다.</p>
+<p>Yuan, Dong, & Adelson <sup><a class="cite-link" href="#ch2-ref-2" title="2017">[2]</a></sup>이 MIT CSAIL에서 개발한 GelSight는 광도 입체법을 이용하여 접촉면의 3D 형상을 마이크로미터 수준으로 복원합니다. 이 센서는 촉각 연구에 "비전의 도구"를 가져왔다는 점에서 패러다임 전환적 기여를 했습니다 — 기존의 전기적 변환 방식과 달리, 이미지 처리와 딥러닝의 풍부한 도구 생태계를 직접 활용할 수 있게 되었습니다.</p>
 <blockquote class="key-paper"><strong>핵심 논문</strong>: Yuan, W., Dong, S., & Adelson, E. H. (2017). "GelSight: High-Resolution Robot Tactile Sensors for Estimating Geometry and Force." <em>Sensors</em>, 17(12), 2762.
 광도 입체법 기반 고해상도 3D 촉각 센서의 기초 논문. 600회 이상 인용으로, 비전 기반 촉각 센서 패러다임의 시작점입니다.</blockquote>
 <h3>GelSight Wedge (2021)</h3>
-<p>Wang et al. [2021]은 GelSight의 쐐기(wedge) 형태 변형을 개발하여, 표준 로봇 그리퍼에 장착할 수 있는 소형 폼 팩터를 달성했습니다. 원형 GelSight가 연구용으로만 적합한 크기였다면, Wedge는 실제 로봇 시스템에의 통합을 가능하게 했습니다.</p>
+<p>Wang et al.<sup><a class="cite-link" href="#ch2-ref-3" title="al. 2021">[3]</a></sup>은 GelSight의 쐐기(wedge) 형태 변형을 개발하여, 표준 로봇 그리퍼에 장착할 수 있는 소형 폼 팩터를 달성했습니다. 원형 GelSight가 연구용으로만 적합한 크기였다면, Wedge는 실제 로봇 시스템에의 통합을 가능하게 했습니다.</p>
 <h3>DIGIT (2020)</h3>
-<p>Meta FAIR의 Lambeta et al. [2020]이 개발한 DIGIT은 소형화와 저비용화의 이정표입니다. <strong>$350</strong>이라는 가격은 기존 BioTac ($5K-10K) 대비 10배 이상 저렴하며, 소형 폼 팩터로 다지 핸드의 각 손가락에 장착이 가능합니다. DIGIT은 촉각 연구의 민주화에 결정적 기여를 했으며, 이후 수많은 후속 연구의 표준 센서로 자리잡았습니다.</p>
+<p>Meta FAIR의 Lambeta et al. <sup><a class="cite-link" href="#ch2-ref-4" title="2020">[4]</a></sup>이 개발한 DIGIT은 소형화와 저비용화의 이정표입니다. <strong>$350</strong>이라는 가격은 기존 BioTac ($5K-10K) 대비 10배 이상 저렴하며, 소형 폼 팩터로 다지 핸드의 각 손가락에 장착이 가능합니다. DIGIT은 촉각 연구의 민주화에 결정적 기여를 했으며, 이후 수많은 후속 연구의 표준 센서로 자리잡았습니다.</p>
 <figure>
   <img src="../assets/figures/ch02/fig_2_2_vbts_evolution_darkmode.png" alt="Figure 2.2: 비전 기반 촉각 센서의 진화. Source: Yuan et al. (2017), Wang et al. (2021), Lambeta et al. (2020, 2024)." loading="lazy" onerror="this.src='../assets/figures/ch02/fig_2_2_vbts_evolution_technical.png'">
   <figcaption>Figure 2.2: 비전 기반 촉각 센서의 진화. Source: Yuan et al. (2017), Wang et al. (2021), Lambeta et al. (2020, 2024).</figcaption>
 </figure>
 <h3>Digit 360 (2024)</h3>
-<p>Lambeta et al. [2024]의 Digit 360은 현재까지 가장 포괄적인 인공 손가락(artificial fingertip)입니다:</p>
+<p>Lambeta et al.<sup><a class="cite-link" href="#ch2-ref-5" title="al. 2024">[5]</a></sup>의 Digit 360은 현재까지 가장 포괄적인 인공 손가락(artificial fingertip)입니다:</p>
 <ul>
 <li><strong>8.3M taxels</strong>: 약 830만 개의 촉각 감지점</li>
 <li><strong>18+ 센싱 모달리티</strong>: 3D 형상, 힘 (법선 + 전단), 진동, 온도, 근접 등</li>
@@ -194,9 +194,9 @@
 </ul>
 <p>이 센서는 단일 손가락에 인간의 여러 수용기 유형에 상응하는 다중 모달 감지를 통합했다는 점에서, 인공 촉각의 "완전체"에 가까운 시도입니다.</p>
 <h3>모듈러 GelSight 설계 (2025)</h3>
-<p>Agarwal et al. [2025]은 GelSight 계열 센서의 체계적 모듈러 설계 프레임워크를 제안했습니다 (<em>IJRR</em>). 젤 물질, 조명 배치, 카메라 위치, 하우징을 모듈 단위로 조합하여 응용에 맞는 센서를 커스터마이징할 수 있습니다.</p>
+<p>Agarwal et al.<sup><a class="cite-link" href="#ch2-ref-6" title="al. 2025">[6]</a></sup>은 GelSight 계열 센서의 체계적 모듈러 설계 프레임워크를 제안했습니다 (<em>IJRR</em>). 젤 물질, 조명 배치, 카메라 위치, 하우징을 모듈 단위로 조합하여 응용에 맞는 센서를 커스터마이징할 수 있습니다.</p>
 <h3>비전 기반 센서의 한계</h3>
-<p>비전 기반 센서의 가장 큰 한계는 <strong>내구성</strong>입니다. 젤 표면은 반복 접촉으로 마모되며, 조명원의 열화, 먼지 침입, 세척 어려움이 산업 환경에서의 장기 운용을 제약합니다. F-TAC Hand [2025]가 17개의 센서를 손 전체에 배치했을 때, 이는 곧 17개의 잠재적 고장점을 의미합니다. AnySkin [2024]의 12초 교체 접근은 이 문제의 실용적 해결책 중 하나입니다 (<a href="ch13.html">Chapter 13.1 참조</a>).</p>
+<p>비전 기반 센서의 가장 큰 한계는 <strong>내구성</strong>입니다. 젤 표면은 반복 접촉으로 마모되며, 조명원의 열화, 먼지 침입, 세척 어려움이 산업 환경에서의 장기 운용을 제약합니다. F-TAC Hand<sup><a class="cite-link" href="#ch2-ref-15" title="Hand 2025">[15]</a></sup>가 17개의 센서를 손 전체에 배치했을 때, 이는 곧 17개의 잠재적 고장점을 의미합니다. AnySkin<sup><a class="cite-link" href="#ch2-ref-8" title="AnySkin 2024">[8]</a></sup>의 12초 교체 접근은 이 문제의 실용적 해결책 중 하나입니다 (<a href="ch13.html">Chapter 13.1 참조</a>).</p>
 <figure>
   <img src="../assets/figures/ch02/fig_2_3_photometric_stereo_darkmode.png" alt="Figure 2.3: 비전 기반 촉각 센서의 작동 원리 — 광도 입체법 기반 3D 접촉 지도 재구성." loading="lazy" onerror="this.src='../assets/figures/ch02/fig_2_3_photometric_stereo_technical.png'">
   <figcaption>Figure 2.3: 비전 기반 촉각 센서의 작동 원리 — 광도 입체법 기반 3D 접촉 지도 재구성.</figcaption>
@@ -295,7 +295,7 @@
 <td>Universal Slip Detection</td>
 </tr>
 </tbody></table>
-<blockquote class=""><strong>핵심 관점</strong>: 센서 선택은 단일 최적해가 아닌, <strong>태스크-센서 적합도(task-sensor fitness)</strong> 관점에서 접근해야 합니다. Albini et al. [2025]의 촉각 데이터 분류 체계(taxonomy)는 센서 하드웨어에서 데이터 표현으로 이어지는 결정 흐름을 체계화했습니다 (<a href="ch03.html">Chapter 3 참조</a>).</blockquote>
+<blockquote class=""><strong>핵심 관점</strong>: 센서 선택은 단일 최적해가 아닌, <strong>태스크-센서 적합도(task-sensor fitness)</strong> 관점에서 접근해야 합니다. Albini et al.<sup><a class="cite-link" href="#ch2-ref-6" title="al. 2025">[6]</a></sup>의 촉각 데이터 분류 체계(taxonomy)는 센서 하드웨어에서 데이터 표현으로 이어지는 결정 흐름을 체계화했습니다 (<a href="ch03.html">Chapter 3 참조</a>).</blockquote>
 <hr>
 </section>
 <section id="sec-2-6" class="content-section">

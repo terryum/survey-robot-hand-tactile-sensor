@@ -76,7 +76,7 @@
 <h2>7.1 Imitation Learning: Diffusion Policy and ACT/ALOHA</h2>
 <p>Imitation learning (IL) learns policies by directly mimicking human demonstrations. Two approaches have dominated since 2023.</p>
 <h3>Diffusion Policy (2023)</h3>
-<p>Chi et al. [2023] model robot actions as a <strong>conditional denoising diffusion process</strong> (<em>RSS 2023 / IJRR 2024</em>):</p>
+<p>Chi et al.<sup><a class="cite-link" href="#ch7-ref-1" title="al. 2023">[1]</a></sup> model robot actions as a <strong>conditional denoising diffusion process</strong> (<em>RSS 2023 / IJRR 2024</em>):</p>
 <ul>
 <li>Handles multimodal action distributions naturally</li>
 <li><strong>46.9% average improvement</strong> over prior methods</li>
@@ -119,7 +119,7 @@ Transformer-based action chunking achieving fine-grained bimanual manipulation o
 <li><strong>200+ citations</strong> (<a href="ch09.html">Chapter 9.2 for details</a>)</li>
 </ul>
 <h3>Tactile-Based Sim-to-Real RL</h3>
-<p>Yin et al. [2024] developed a binary 3-axis tactile skin sensor model:</p>
+<p>Yin et al.<sup><a class="cite-link" href="#ch7-ref-6" title="al. 2024">[6]</a></sup> developed a binary 3-axis tactile skin sensor model:</p>
 <ul>
 <li><strong>5,000 FPS</strong> simulation speed</li>
 <li>S3-Axis: <strong>93% success</strong> on out-of-distribution objects</li>
@@ -135,7 +135,7 @@ Transformer-based action chunking achieving fine-grained bimanual manipulation o
 <section id="sec-7-3" class="content-section">
 <h2>7.3 Tactile-Based Manipulation: Tactile-Only Rotation, Visuo-Tactile Fusion, PP-Tac</h2>
 <h3>7.3.1 Tactile-Only In-Hand Rotation</h3>
-<p>Yin et al. [2023, <em>RSS</em>] and Pitz et al. [2024] proved continuous object rotation possible with touch alone. However, as discussed in Seminar 1:</p>
+<p>Yin et al. [2023, <em>RSS</em>] and Pitz et al.<sup><a class="cite-link" href="#ch7-ref-6" title="al. 2024">[6]</a></sup> proved continuous object rotation possible with touch alone. However, as discussed in Seminar 1:</p>
 <ul>
 <li><strong>Limitation</strong>: Tactile-only manipulation is currently limited to <strong>rotation</strong></li>
 <li><strong>Reason</strong>: Touch provides only local, post-contact information — no global information before contact</li>
@@ -168,7 +168,7 @@ Transformer-based action chunking achieving fine-grained bimanual manipulation o
 <h2>7.4 Force-Informed Learning: DexForce and ForceVLA</h2>
 <p>Approaches that explicitly integrate force information into learning.</p>
 <h3>DexForce (2025)</h3>
-<p>Hou et al. [2025] naturally record force information from kinesthetic teaching:</p>
+<p>Hou et al.<sup><a class="cite-link" href="#ch7-ref-8" title="al. 2025">[8]</a></sup> naturally record force information from kinesthetic teaching:</p>
 <ul>
 <li><strong>Spring model</strong>: $x_f = x_o + k_f \cdot f$ (single parameter $k_f = 0.0045$)</li>
 <li>Generates force-informed action targets</li>
@@ -177,7 +177,7 @@ Transformer-based action chunking achieving fine-grained bimanual manipulation o
 <blockquote class="key-paper"><strong>Key Paper</strong>: Hou, Y., et al. (2025). "DexForce: Learning Contact Forces from Human Demonstrations."
 Spring model-based force-informed demonstration learning. A single parameter $k_f$ naturally integrates force information into action targets.</blockquote>
 <h3>ForceVLA (2025)</h3>
-<p>Yu et al. [2025] implement dynamic force-vision-language fusion:</p>
+<p>Yu et al.<sup><a class="cite-link" href="#ch7-ref-8" title="al. 2025">[8]</a></sup> implement dynamic force-vision-language fusion:</p>
 <ul>
 <li><strong>FVLMoE</strong>: 4-expert Mixture of Experts architecture</li>
 <li>Force integration into pi0-based VLA</li>
@@ -193,7 +193,7 @@ Spring model-based force-informed demonstration learning. A single parameter $k_
 </section>
 <section id="sec-7-5" class="content-section">
 <h2>7.5 Optimization-Based Alternatives: The RGMC Champion</h2>
-<p>Not all manipulation requires learning. Yu et al. [2025]'s RGMC Champion solution:</p>
+<p>Not all manipulation requires learning. Yu et al.<sup><a class="cite-link" href="#ch7-ref-8" title="al. 2025">[8]</a></sup>'s RGMC Champion solution:</p>
 <ul>
 <li><strong>Kinematic trajectory optimization</strong>: No pretraining required</li>
 <li>40 waypoints in 5x5x5 cm space</li>
@@ -204,7 +204,7 @@ Spring model-based force-informed demonstration learning. A single parameter $k_
 <h3>FARM: Tactile-Conditioned Diffusion Policy (2025)</h3>
 <p>FARM [2025] infers force signals from high-dimensional tactile data and conditions Diffusion Policy on tactile feedback.</p>
 <h3>TLA: Tactile-Language-Action Model (2025)</h3>
-<p>TLA [2025] implements language-conditioned tactile control with 24,000 tactile-action instruction pairs, enabling natural language commands for contact-rich manipulation.</p>
+<p>TLA<sup><a class="cite-link" href="#ch7-ref-15" title="TLA 2025">[15]</a></sup> implements language-conditioned tactile control with 24,000 tactile-action instruction pairs, enabling natural language commands for contact-rich manipulation.</p>
 <h3>Non-Prehensile Tactile Manipulation</h3>
 <p>Tactile-Driven Non-Prehensile Manipulation [RSS 2024] controls extrinsic contact modes via tactile feedback for precise object manipulation without grasping.</p>
 <hr>
@@ -269,7 +269,7 @@ Spring model-based force-informed demonstration learning. A single parameter $k_
 <ul>
 <li>Learning-Based In-Hand Manipulation Survey [Frontiers, 2024]</li>
 <li>Robot Intelligent Grasping Based on Tactile Perception [Elsevier, 2024]</li>
-<li>Dexterous Manipulation Through Imitation Learning Survey [2025]</li>
+<li>Dexterous Manipulation Through Imitation Learning Survey<sup><a class="cite-link" href="#ch7-ref-22" title="Survey 2025">[22]</a></sup></li>
 </ul>
 <figure>
   <img src="../assets/figures/ch07/fig_7_6_tactile_landscape_darkmode.png" alt="Figure 7.6: Full landscape of tactile manipulation learning." loading="lazy" onerror="this.src='../assets/figures/ch07/fig_7_6_tactile_landscape_technical.png'">

@@ -120,13 +120,50 @@ def build_citation_map(md_text):
             cite_map[f'{last_names[0]} & {last_names[1]}, {year}'] = i
             cite_map[f'{last_names[0]} and {last_names[1]}, {year}'] = i
 
-        # Also map just year for some edge cases like [2025]
-        # (but only if no other ref has the same year - skip this to avoid ambiguity)
+        # Map bold-stripped first author (handles **bold** in md)
+        first_author_clean = first_author.replace('**', '').strip()
+        if first_author_clean != first_author:
+            cite_map[f'{first_author_clean}, {year}'] = i
+            cite_map[f'{first_author_clean} et al., {year}'] = i
+
+        # Map organization names (e.g., "Physical Intelligence", "Google DeepMind")
+        org_part = author_part.replace('**', '').strip().rstrip('.')
+        if org_part:
+            cite_map[f'{org_part}, {year}'] = i
+            cite_map[f'{org_part} ({year})'] = i
+            cite_map[f'{org_part} [{year}]'] = i
+
+        # Map keywords found in the full reference text (title, etc.)
+        # This catches "pi0", "pi0.6", "RECAP", "Octo", "OpenVLA", etc.
+        ref_lower = ref_text.lower()
+        # Extract notable keywords from the reference
+        for keyword in re.findall(r'(?:pi\*?\d[\d.]*|RECAP|Octo|OpenVLA|GR00T|Helix|DIGIT|GelSight|LEAP|MANO|ALOHA|DexCap|DeXtreme|Sparsh|UniTouch|ForceVLA|Tactile-VLA|OSMO|DexUMI|DEXOP|ExoStart|NeuralFeels|RoboPaint|DiffTactile|FARM|TLA|F-TAC|Mobile ALOHA|RT-1|RT-2|Gemini Robotics|X-Embodiment|Flow Matching|Diffusion Policy|ACT|VTDexManip|AnyTouch|AnySkin|ReSkin|Bunny-VisionPro|AnyTeleop|DexPilot|DexH2R|DOGlove|UniTacHand|ImMimic|X-Sim|Isaac|MuJoCo|RGMC|Robot Synesthesia|PP-Tac|DexForce|ForceMimic)', ref_text, re.IGNORECASE):
+            kw_lower = keyword.lower()
+            cite_map[f'{keyword} [{year}]'] = i
+            cite_map[f'{keyword}, {year}'] = i
+            cite_map[f'{keyword} ({year})'] = i
+            # Store for contextual matching
+            cite_map[f'_kw_{kw_lower}_{year}'] = i
+
+    # Build year-only map (only if unique year in refs)
+    year_count = {}
+    for ref_text in refs:
+        ym = re.search(r'\((\d{4})\)', ref_text)
+        if ym:
+            yr = ym.group(1)
+            year_count[yr] = year_count.get(yr, 0) + 1
+    # Only map year-only for unambiguous years
+    for i, ref_text in enumerate(refs, 1):
+        ym = re.search(r'\((\d{4})\)', ref_text)
+        if ym:
+            yr = ym.group(1)
+            if year_count[yr] == 1 and yr not in cite_map:
+                cite_map[yr] = i
 
     return cite_map, refs
 
 
-def replace_citations_with_links(html_text, cite_map, ch_num):
+def replace_citations_with_links(html_text, cite_map, ch_num, ref_list=None):
     """Replace [Author, Year] citations in HTML with superscript links.
 
     Converts inline citations to clickable superscript numbers that
@@ -134,48 +171,124 @@ def replace_citations_with_links(html_text, cite_map, ch_num):
     """
     if not cite_map:
         return html_text
+    if ref_list is None:
+        ref_list = []
+
+    # Build a reverse lookup: year → list of (author_keyword, ref_num)
+    year_refs = {}
+    for key, num in cite_map.items():
+        year_match = re.search(r'\d{4}', key)
+        if year_match:
+            yr = year_match.group()
+            author = key.replace(yr, '').strip(' ,[]()').lower()
+            if yr not in year_refs:
+                year_refs[yr] = []
+            year_refs[yr].append((author, num))
+
+    def make_link(num, title):
+        return f'<sup><a class="cite-link" href="#ch{ch_num}-ref-{num}" title="{title}">[{num}]</a></sup>'
 
     def citation_replacer(match):
         """Replace a single [citation] with a superscript link."""
-        full_match = match.group(0)  # e.g., [Yuan et al., 2017]
-        inner = match.group(1)       # e.g., Yuan et al., 2017
+        full_match = match.group(0)
+        inner = match.group(1)
 
         # Skip if this looks like a markdown link [text](url)
-        # Check what comes right after the match
         end_pos = match.end()
         if end_pos < len(html_text) and html_text[end_pos] == '(':
             return full_match
 
-        # Skip things that aren't citations (e.g., [보충 필요], [PASS])
+        # Skip things that aren't citations (e.g., [보충 필요], [PASS], [Link])
         if not re.search(r'\d{4}', inner):
             return full_match
 
-        # Try to find this citation in our map
         inner_clean = inner.strip()
 
         # Direct lookup
         if inner_clean in cite_map:
-            num = cite_map[inner_clean]
-            return f'<sup><a class="cite-link" href="#ch{ch_num}-ref-{num}" title="{inner_clean}">[{num}]</a></sup>'
+            return make_link(cite_map[inner_clean], inner_clean)
 
-        # Try fuzzy matching: normalize spaces and punctuation
-        for key, num in cite_map.items():
-            # Check if the key is substantially contained in the citation
-            key_author = key.split(',')[0].strip() if ',' in key else key.split('(')[0].strip()
-            key_year = re.search(r'\d{4}', key)
-            inner_year = re.search(r'\d{4}', inner_clean)
+        # Fuzzy matching: years match + author substring
+        inner_year = re.search(r'\d{4}', inner_clean)
+        if inner_year:
+            yr = inner_year.group()
+            inner_lower = inner_clean.lower()
 
-            if key_year and inner_year and key_year.group() == inner_year.group():
-                # Years match, check author
-                if key_author.lower() in inner_clean.lower():
-                    return f'<sup><a class="cite-link" href="#ch{ch_num}-ref-{num}" title="{inner_clean}">[{num}]</a></sup>'
+            # Try cite_map keys
+            for key, num in cite_map.items():
+                key_year = re.search(r'\d{4}', key)
+                if key_year and key_year.group() == yr:
+                    key_author = key.replace(yr, '').strip(' ,[]()').lower()
+                    if key_author and key_author in inner_lower:
+                        return make_link(num, inner_clean)
+                    if inner_lower.replace(yr, '').strip(' ,[]()') in key_author and len(inner_lower) > 4:
+                        return make_link(num, inner_clean)
 
-        # No match found — keep original text
+            # Year-only citation [2025]: look for context before the bracket
+            if inner_clean == yr and yr in cite_map:
+                return make_link(cite_map[yr], inner_clean)
+
         return full_match
 
-    # Match [anything that contains a year] but not markdown links [text](url)
-    # Use negative lookahead for ( to avoid matching markdown links
+    # First pass: replace [Author et al., Year] and [Year] patterns
     result = re.sub(r'\[([^\]]+)\](?!\()', citation_replacer, html_text)
+
+    # Second pass: find "Name [Year]" patterns where [Year] wasn't matched
+    # e.g., "pi0.6 [2025]" or "Octo [2024]" — match word(s) before [year]
+    def contextual_replacer(match):
+        prefix = match.group(1)  # e.g., "pi0.6" or "Octo"
+        year = match.group(2)    # e.g., "2025"
+
+        # Check if already replaced (contains cite-link)
+        if 'cite-link' in prefix:
+            return match.group(0)
+
+        prefix_clean = re.sub(r'<[^>]+>', '', prefix).strip()
+        prefix_lower = prefix_clean.lower()
+
+        # Try keyword matching first (most precise)
+        kw_key = f'_kw_{prefix_lower}_{year}'
+        if kw_key in cite_map:
+            return f'{prefix}{make_link(cite_map[kw_key], prefix_clean + " " + year)}'
+
+        # Try direct key match
+        for pattern in [f'{prefix_clean} [{year}]', f'{prefix_clean}, {year}', f'{prefix_clean} ({year})']:
+            if pattern in cite_map:
+                return f'{prefix}{make_link(cite_map[pattern], prefix_clean + " " + year)}'
+
+        # Fuzzy: check if prefix appears in any cite_map key with same year
+        for key, num in cite_map.items():
+            if key.startswith('_kw_'):
+                continue
+            key_year = re.search(r'\d{4}', key)
+            if key_year and key_year.group() == year:
+                key_lower = key.lower()
+                if prefix_lower and len(prefix_lower) > 2 and prefix_lower in key_lower:
+                    return f'{prefix}{make_link(num, prefix_clean + " " + year)}'
+
+        # Search in full reference text for the prefix keyword
+        if ref_list:
+            for idx, ref_text in enumerate(ref_list, 1):
+                ref_year = re.search(r'\((\d{4})\)', ref_text)
+                if ref_year and ref_year.group(1) == year:
+                    ref_lower = ref_text.lower()
+                    if prefix_lower and len(prefix_lower) > 2:
+                        # Exact substring match
+                        if prefix_lower in ref_lower:
+                            return f'{prefix}{make_link(idx, prefix_clean + " " + year)}'
+                        # Prefix match for versioned names (pi0.6 → pi0.5, pi0)
+                        prefix_base = re.sub(r'[\d.]+$', '', prefix_lower)
+                        if prefix_base and len(prefix_base) > 1 and prefix_base in ref_lower:
+                            return f'{prefix}{make_link(idx, prefix_clean + " " + year)}'
+
+        # Fallback: year-only match (only if unambiguous)
+        if year in cite_map:
+            return f'{prefix}{make_link(cite_map[year], year)}'
+
+        return match.group(0)
+
+    result = re.sub(r'(\S+)\s*\[(\d{4})\](?!\()', contextual_replacer, result)
+
     return result
 
 
@@ -536,7 +649,7 @@ def build_chapter_html(ch_num, lang, chapters_meta, book_dir, lang_code):
     content_html = md_to_html_content(body_content, ch_num, lang)
 
     # Replace citations with superscript links
-    content_html = replace_citations_with_links(content_html, cite_map, ch_num)
+    content_html = replace_citations_with_links(content_html, cite_map, ch_num, ref_list)
 
     # Build proper references list HTML
     ref_section_title = '참고문헌' if lang == 'ko' else 'References'

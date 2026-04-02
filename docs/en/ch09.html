@@ -75,9 +75,9 @@
 <section id="sec-9-1" class="content-section">
 <h2>9.1 Simulation Engines: Isaac Gym/Lab, MuJoCo, Tacto, DiffTactile</h2>
 <h3>Isaac Gym / Isaac Lab</h3>
-<p>NVIDIA's Isaac ecosystem is the standard for GPU-accelerated physics simulation: thousands of parallel environments, Newton physics engine, Omniverse digital twins. Core platform for DeXtreme [2023] and GR00T [2025].</p>
+<p>NVIDIA's Isaac ecosystem is the standard for GPU-accelerated physics simulation: thousands of parallel environments, Newton physics engine, Omniverse digital twins. Core platform for DeXtreme<sup><a class="cite-link" href="#ch9-ref-1" title="DeXtreme 2023">[1]</a></sup> and GR00T<sup><a class="cite-link" href="#ch9-ref-12" title="GR00T 2025">[12]</a></sup>.</p>
 <h3>MuJoCo</h3>
-<p>DeepMind's MuJoCo excels at contact-rich simulation. Used for ExoStart [2025] dynamics filtering and OpenAI Dactyl [2020].</p>
+<p>DeepMind's MuJoCo excels at contact-rich simulation. Used for ExoStart<sup><a class="cite-link" href="#ch9-ref-6" title="ExoStart 2025">[6]</a></sup> dynamics filtering and OpenAI Dactyl <sup><a class="cite-link" href="#ch9-ref-2" title="2020">[2]</a></sup>.</p>
 <h3>Tacto (2022)</h3>
 <p>Meta FAIR's open-source simulator for vision-based tactile sensors (PyRender + PyBullet). Generates synthetic tactile images for GelSight/DIGIT. 150+ citations.</p>
 <h3>DiffTactile (2024)</h3>
@@ -163,7 +163,7 @@ ADR with simultaneous physics/non-physics randomization is the key to sim-to-rea
 <section id="sec-9-3" class="content-section">
 <h2>9.3 Tactile Sim-to-Real: Binary Tactile Skin Models and Zero-Shot Transfer</h2>
 <p>Tactile sim-to-real is fundamentally harder than visual sim-to-real: accurate gel deformation modeling is difficult; multi-physics coupling (optical + deformation + contact) is complex; sensor noise profiles differ between simulation and reality.</p>
-<p>Yin et al. [2024]'s binary 3-axis tactile skin model offers a practical solution:</p>
+<p>Yin et al.<sup><a class="cite-link" href="#ch9-ref-4" title="al. 2024">[4]</a></sup>'s binary 3-axis tactile skin model offers a practical solution:</p>
 <ul>
 <li><strong>Simplification</strong>: Continuous force → binary contact (contact yes/no + 3-axis direction)</li>
 <li><strong>5,000 FPS</strong> simulation speed</li>
@@ -171,7 +171,7 @@ ADR with simultaneous physics/non-physics randomization is the key to sim-to-rea
 <li><strong>93% success</strong> on out-of-distribution objects</li>
 </ul>
 <p>Key lesson: <strong>Simplified models with wide coverage can be more effective for sim-to-real transfer than precise but narrow tactile simulation.</strong></p>
-<p>Sim-to-Real RL for Humanoid Dexterous Manipulation [2025] provides a practical recipe covering environment modeling, reward design, policy learning, and transfer.</p>
+<p>Sim-to-Real RL for Humanoid Dexterous Manipulation<sup><a class="cite-link" href="#ch9-ref-6" title="Manipulation 2025">[6]</a></sup> provides a practical recipe covering environment modeling, reward design, policy learning, and transfer.</p>
 <figure>
   <img src="../assets/figures/ch09/fig_9_3_tactile_sim2real_challenges_darkmode.png" alt="Figure 9.3: Challenges of tactile sim-to-real transfer." loading="lazy" onerror="this.src='../assets/figures/ch09/fig_9_3_tactile_sim2real_challenges_technical.png'">
   <figcaption>Figure 9.3: Challenges of tactile sim-to-real transfer.</figcaption>
@@ -184,7 +184,7 @@ ADR with simultaneous physics/non-physics randomization is the key to sim-to-rea
 <h3>RoboPaint (2025)</h3>
 <p>3D Gaussian Splatting (3DGS) reconstructs real scenes in simulation, increasing visual fidelity.</p>
 <h3>X-Sim (2025)</h3>
-<p>Dan et al. [2025]'s Real-to-Sim-to-Real pipeline: real human data → simulation → policy learning → real transfer.</p>
+<p>Dan et al.<sup><a class="cite-link" href="#ch9-ref-6" title="al. 2025">[6]</a></sup>'s Real-to-Sim-to-Real pipeline: real human data → simulation → policy learning → real transfer.</p>
 <h3>ExoStart (2025)</h3>
 <p>The most data-efficient Real-Sim-Real example:</p>
 <ol>

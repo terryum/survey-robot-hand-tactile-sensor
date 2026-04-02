@@ -125,7 +125,7 @@
   <figcaption>Figure 1.2: 촉각 로봇 공학의 4세대 타임라인 (1965-2026). Adapted from Tactile Robotics: Past and Future (2025).</figcaption>
 </figure>
 <p><strong>1세대 — 기원 (1965-1980년대)</strong>: 초기 촉각 센서는 단순한 접촉 감지(binary contact detection)에 그쳤습니다. 힘-토크(force-torque) 센서가 산업용 로봇 팔에 도입되기 시작했지만, 손가락 수준의 촉각은 먼 목표였습니다.</p>
-<p><strong>2세대 — 성장 (1980-2000년대)</strong>: Dahiya et al. [2010]의 기념비적 서베이가 정리한 바와 같이, 이 시기에 압저항식, 정전용량식, 압전식 등 다양한 변환(transduction) 방식이 탐구되었습니다. Shadow Hand(1990s)와 같은 다지 핸드(dexterous hand) 프로토타입이 등장했지만, 센서의 내구성과 비용이 실용화의 벽이었습니다.</p>
+<p><strong>2세대 — 성장 (1980-2000년대)</strong>: Dahiya et al. <sup><a class="cite-link" href="#ch1-ref-3" title="2010">[3]</a></sup>의 기념비적 서베이가 정리한 바와 같이, 이 시기에 압저항식, 정전용량식, 압전식 등 다양한 변환(transduction) 방식이 탐구되었습니다. Shadow Hand(1990s)와 같은 다지 핸드(dexterous hand) 프로토타입이 등장했지만, 센서의 내구성과 비용이 실용화의 벽이었습니다.</p>
 <blockquote class="key-paper"><strong>핵심 논문</strong>: Dahiya, R. S., Metta, G., Valle, M., & Sandini, G. (2010). "Tactile Sensing: From Humans to Humanoids." <em>IEEE Transactions on Robotics</em>, 26(1), 1-20.
 촉각 센싱의 변환 방법, 데이터 처리, 시스템 통합을 망라한 기초 서베이로, 촉각 로봇 연구의 사실상 표준 출발점입니다.</blockquote>
 <p><strong>3세대 — 촉각의 겨울 (2000-2015년)</strong>: 컴퓨터 비전의 비약적 발전(deep learning, CNNs)으로 연구 커뮤니티의 관심이 시각 기반 로봇 공학으로 집중되면서, 촉각 연구는 상대적으로 정체기를 겪었습니다. 그러나 이 시기에도 BioTac($5K-10K)과 같은 고성능 촉각 센서가 개발되어 꾸준한 기초 연구가 이어졌습니다.</p>
@@ -141,15 +141,15 @@
 <h2>1.3 촉각 없이 실패하는 사례</h2>
 <p>시각(vision)만으로는 해결이 어려운 조작 시나리오가 다수 존재합니다. 아래는 촉각의 부재가 직접적인 실패 원인이 되는 대표적 사례들입니다.</p>
 <h3>1.3.1 파지 실패 (Grasp Failure)</h3>
-<p>로봇이 물체를 잡을 때, 시각 정보만으로는 적절한 힘(gripping force)을 결정하기 어렵습니다. 같은 크기의 스티로폼 컵과 세라믹 머그컵은 카메라에 유사하게 보이지만, 필요한 파지력은 수십 배 차이가 납니다. F-TAC Hand [2025]는 17개의 촉각 센서로 손 표면의 70%를 커버하여 다중 물체 파지에서 100% 성공률을 달성했습니다 — 이는 촉각 피드백의 위력을 직접 보여줍니다 (<a href="ch02.html">Chapter 2.4 참조</a>).</p>
+<p>로봇이 물체를 잡을 때, 시각 정보만으로는 적절한 힘(gripping force)을 결정하기 어렵습니다. 같은 크기의 스티로폼 컵과 세라믹 머그컵은 카메라에 유사하게 보이지만, 필요한 파지력은 수십 배 차이가 납니다. F-TAC Hand<sup><a class="cite-link" href="#ch1-ref-16" title="Hand 2025">[16]</a></sup>는 17개의 촉각 센서로 손 표면의 70%를 커버하여 다중 물체 파지에서 100% 성공률을 달성했습니다 — 이는 촉각 피드백의 위력을 직접 보여줍니다 (<a href="ch02.html">Chapter 2.4 참조</a>).</p>
 <h3>1.3.2 미끄러짐 감지 (Slip Detection)</h3>
-<p>물체가 손에서 미끄러지는 것을 감지하려면 접선 방향(shear) 힘의 변화를 실시간으로 모니터링해야 합니다. Universal Slip Detection [2025]은 97% 정확도와 1.26ms 지연 시간으로 미끄러짐을 감지하는 촉각 기반 시스템을 구현했습니다. 카메라로는 미끄러짐이 발생한 <em>이후</em>에야 이를 관찰할 수 있지만, 촉각은 미끄러짐이 <em>시작되는 순간</em> 감지할 수 있습니다.</p>
+<p>물체가 손에서 미끄러지는 것을 감지하려면 접선 방향(shear) 힘의 변화를 실시간으로 모니터링해야 합니다. Universal Slip Detection<sup><a class="cite-link" href="#ch1-ref-17" title="Detection 2025">[17]</a></sup>은 97% 정확도와 1.26ms 지연 시간으로 미끄러짐을 감지하는 촉각 기반 시스템을 구현했습니다. 카메라로는 미끄러짐이 발생한 <em>이후</em>에야 이를 관찰할 수 있지만, 촉각은 미끄러짐이 <em>시작되는 순간</em> 감지할 수 있습니다.</p>
 <figure>
   <img src="../assets/figures/ch01/fig_1_4_vision_vs_tactile_darkmode.png" alt="Figure 1.4: 시각 vs 촉각의 시간 응답 비교 — 미끄러짐 감지 시나리오." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_4_vision_vs_tactile_technical.png'">
   <figcaption>Figure 1.4: 시각 vs 촉각의 시간 응답 비교 — 미끄러짐 감지 시나리오.</figcaption>
 </figure>
 <h3>1.3.3 변형 가능 물체 (Deformable Objects)</h3>
-<p>천, 케이블, 식품과 같은 변형 가능 물체(deformable object)의 조작은 시각만으로는 본질적으로 어렵습니다. 물체의 강성(stiffness), 마찰 계수, 현재 변형 상태를 추론하려면 접촉 정보가 필수적입니다. PP-Tac [2025]은 R-Tac 촉각 센서와 미끄러짐 감지를 결합한 Diffusion Policy로 87.5%의 얇은 물체 파지 성공률을 달성했습니다 — 이는 종이, 카드 같은 극도로 얇은 물체에서의 성과입니다 (<a href="ch07.html">Chapter 7.3 참조</a>).</p>
+<p>천, 케이블, 식품과 같은 변형 가능 물체(deformable object)의 조작은 시각만으로는 본질적으로 어렵습니다. 물체의 강성(stiffness), 마찰 계수, 현재 변형 상태를 추론하려면 접촉 정보가 필수적입니다. PP-Tac<sup><a class="cite-link" href="#ch1-ref-18" title="PP-Tac 2025">[18]</a></sup>은 R-Tac 촉각 센서와 미끄러짐 감지를 결합한 Diffusion Policy로 87.5%의 얇은 물체 파지 성공률을 달성했습니다 — 이는 종이, 카드 같은 극도로 얇은 물체에서의 성과입니다 (<a href="ch07.html">Chapter 7.3 참조</a>).</p>
 <h3>1.3.4 가려진 상태 (Occlusion)</h3>
 <p>로봇이 물체를 손 안에서 회전(in-hand rotation)시킬 때, 손가락이 물체의 대부분을 가립니다. NeuralFeels <sup><a class="cite-link" href="#ch1-ref-12" title="Suresh et al., 2024">[12]</a></sup>는 촉각과 시각을 결합한 신경장(neural field) 기반 SLAM으로 손 안에서 물체의 위치와 형상을 동시에 추정하는 In-hand SLAM을 구현했습니다 (<em>Science Robotics</em>, 2024). 시각만으로는 불가능한 과제입니다 (<a href="ch11.html">Chapter 11.1 참조</a>).</p>
 <hr>
@@ -158,9 +158,9 @@
 <h2>1.4 촉각이 가능하게 하는 것</h2>
 <p>촉각 센싱은 로봇 조작에서 다음과 같은 핵심 능력을 제공합니다:</p>
 <h3>1.4.1 힘 조절 (Force Modulation)</h3>
-<p>촉각 피드백은 파지력의 실시간 조절을 가능하게 합니다. Hogan [1985]이 제안한 임피던스 제어(impedance control)는 로봇이 환경과 상호작용할 때 힘과 위치의 관계를 조절하는 기초 이론을 제공했으며, 이는 오늘날 촉각 기반 힘 제어의 근간이 됩니다. DexForce [2025]는 스프링 모델 기반의 운동학적 시연(kinesthetic teaching)으로 힘-토크 정보를 동시에 기록하고 학습하는 접근을 제시했습니다 (<a href="ch07.html">Chapter 7.4 참조</a>).</p>
+<p>촉각 피드백은 파지력의 실시간 조절을 가능하게 합니다. Hogan <sup><a class="cite-link" href="#ch1-ref-8" title="1985">[8]</a></sup>이 제안한 임피던스 제어(impedance control)는 로봇이 환경과 상호작용할 때 힘과 위치의 관계를 조절하는 기초 이론을 제공했으며, 이는 오늘날 촉각 기반 힘 제어의 근간이 됩니다. DexForce<sup><a class="cite-link" href="#ch1-ref-21" title="DexForce 2025">[21]</a></sup>는 스프링 모델 기반의 운동학적 시연(kinesthetic teaching)으로 힘-토크 정보를 동시에 기록하고 학습하는 접근을 제시했습니다 (<a href="ch07.html">Chapter 7.4 참조</a>).</p>
 <h3>1.4.2 미끄러짐 감지와 반응 (Slip Detection and Response)</h3>
-<p>전단력(shear force)의 변화를 감지하여 물체가 미끄러지기 전에 힘을 증가시킵니다. 다축 센싱(multi-axis sensing)의 중요성은 법선력(normal force)만으로는 전단 방향의 미끄러짐을 예측할 수 없다는 사실에서 비롯됩니다 [세미나 2, Taejoon]. Cho et al. [2025]과 Hossain et al. [2025]은 다차원 촉각 센싱이 미끄러짐 감지와 물체 방향 추정에서 단축 센서를 크게 능가함을 보였습니다.</p>
+<p>전단력(shear force)의 변화를 감지하여 물체가 미끄러지기 전에 힘을 증가시킵니다. 다축 센싱(multi-axis sensing)의 중요성은 법선력(normal force)만으로는 전단 방향의 미끄러짐을 예측할 수 없다는 사실에서 비롯됩니다 [세미나 2, Taejoon]. Cho et al.<sup><a class="cite-link" href="#ch1-ref-14" title="al. 2025">[14]</a></sup>과 Hossain et al.<sup><a class="cite-link" href="#ch1-ref-14" title="al. 2025">[14]</a></sup>은 다차원 촉각 센싱이 미끄러짐 감지와 물체 방향 추정에서 단축 센서를 크게 능가함을 보였습니다.</p>
 <h3>1.4.3 자세 추정 (Pose Estimation)</h3>
 <p>접촉점의 분포와 힘 벡터로부터 손 안 물체의 위치와 자세를 추정합니다. 촉각 전용 손안 회전(tactile-only in-hand rotation) <sup><a class="cite-link" href="#ch1-ref-10" title="Yin et al., 2023; Pitz et al., 2024">[10]</a></sup>은 시각 없이 이진 촉각(binary tactile) 센서만으로 물체를 연속적으로 회전시키는 것이 가능함을 입증했습니다 — 다만 세미나 1에서 논의된 바와 같이, 촉각만으로 가능한 조작은 현재 회전(rotation) 과제에 한정되며, 이는 촉각이 접촉 <em>후</em>의 국소(local) 정보만 제공하기 때문입니다.</p>
 <h3>1.4.4 질감 인식 (Texture Recognition)</h3>
@@ -214,7 +214,7 @@
 <td>파일럿 진행 중</td>
 </tr>
 </tbody></table>
-<p>그러나 Billard & Kragic [2019]이 지적한 바와 같이, 현재의 공장 배치는 대부분 <strong>물류(pick-move-place)</strong> 수준에 머물러 있습니다. 촉각 피드백이 필수적인 <strong>정밀 조립(dexterous assembly)</strong>은 아직 생산 현장에 도달하지 못했습니다. 이 격차를 메우는 것이 향후 5년간 촉각 로봇 공학의 핵심 과제입니다 (<a href="ch12.html">Chapter 12, 13 참조</a>).</p>
+<p>그러나 Billard & Kragic <sup><a class="cite-link" href="#ch1-ref-9" title="2019">[9]</a></sup>이 지적한 바와 같이, 현재의 공장 배치는 대부분 <strong>물류(pick-move-place)</strong> 수준에 머물러 있습니다. 촉각 피드백이 필수적인 <strong>정밀 조립(dexterous assembly)</strong>은 아직 생산 현장에 도달하지 못했습니다. 이 격차를 메우는 것이 향후 5년간 촉각 로봇 공학의 핵심 과제입니다 (<a href="ch12.html">Chapter 12, 13 참조</a>).</p>
 <figure>
   <img src="../assets/figures/ch01/fig_1_6_manipulation_spectrum_darkmode.png" alt="Figure 1.6: 로봇 조작 능력의 스펙트럼 — 물류(현재 산업 배치) vs 정밀 조작(연구 수준)." loading="lazy" onerror="this.src='../assets/figures/ch01/fig_1_6_manipulation_spectrum_technical.png'">
   <figcaption>Figure 1.6: 로봇 조작 능력의 스펙트럼 — 물류(현재 산업 배치) vs 정밀 조작(연구 수준).</figcaption>

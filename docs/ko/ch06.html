@@ -92,7 +92,7 @@
 <h2>6.2 모션 트래킹 글로브: 신축성 센서에서 상용 제품까지</h2>
 <p>세미나 2 (Taejoon)는 모션 트래킹 글로브의 현황을 체계적으로 리뷰했습니다.</p>
 <h3>신축성 액체 금속 센서 글로브 (2024)</h3>
-<p><em>Nature Communications</em> [2024]에 발표된 이 글로브는:</p>
+<p><em>Nature Communications</em><sup><a class="cite-link" href="#ch6-ref-2" title="Communications 2024">[2]</a></sup>에 발표된 이 글로브는:</p>
 <ul>
 <li>9개의 eGaIn(유텍틱 갈륨-인듐) 액체 금속 센서</li>
 <li>9 DoF 추적, 모든 손 크기에 적응 (one-size-fits-all)</li>
@@ -146,13 +146,13 @@
 <h2>6.3 촉각 글로브: STAG, OSMO와 오픈소스 접근</h2>
 <p>모션 트래킹을 넘어, 인간이 물체를 잡을 때의 <strong>촉각 정보</strong>까지 수집하는 것이 다음 단계입니다.</p>
 <h3>STAG (2019)</h3>
-<p>Sundaram et al. [2019]의 STAG 글로브 (<em>Nature</em>, 2019):</p>
+<p>Sundaram et al. <sup><a class="cite-link" href="#ch6-ref-3" title="2019">[3]</a></sup>의 STAG 글로브 (<em>Nature</em>, 2019):</p>
 <ul>
 <li><strong>548개 압저항 센서</strong>: 인간 손의 압력 분포를 고해상도로 측정</li>
 <li>파지-손가락 상관관계(grasp-finger correlation) 분석</li>
 <li>로봇 학습을 위한 촉각 시연 데이터셋 구축의 선구적 사례</li>
 </ul>
-<p>Ruppel et al. [2024]은 169개 센서로 축소된 버전을 제안하여, 센서 수와 정보 손실의 트레이드오프를 탐구했습니다.</p>
+<p>Ruppel et al.<sup><a class="cite-link" href="#ch6-ref-21" title="al. 2024">[21]</a></sup>은 169개 센서로 축소된 버전을 제안하여, 센서 수와 정보 손실의 트레이드오프를 탐구했습니다.</p>
 <h3>OSMO 글로브 (2025)</h3>
 <p>OSMO [arXiv:2512.08920]는 인간과 로봇 손에 <strong>동일한 글로브를 사용</strong>하는 혁신적 접근입니다:</p>
 <ul>
@@ -169,14 +169,14 @@
   <figcaption>Figure 6.3: OSMO 글로브의 Embodiment Bridge 개념. Source: OSMO (2025).</figcaption>
 </figure>
 <h3>FSR 최적화 접근</h3>
-<p>Tang et al. [2025]과 Chen et al. [2025]은 FSR(Force Sensing Resistor) 센서의 최적 배치 문제를 다루어, 제한된 센서 수로 최대 정보를 추출하는 방법을 탐구했습니다. 이는 "고공간 해상도 vs 최적화된 센서 수/위치"의 트레이드오프에 대한 답입니다.</p>
+<p>Tang et al.<sup><a class="cite-link" href="#ch6-ref-5" title="al. 2025">[5]</a></sup>과 Chen et al.<sup><a class="cite-link" href="#ch6-ref-5" title="al. 2025">[5]</a></sup>은 FSR(Force Sensing Resistor) 센서의 최적 배치 문제를 다루어, 제한된 센서 수로 최대 정보를 추출하는 방법을 탐구했습니다. 이는 "고공간 해상도 vs 최적화된 센서 수/위치"의 트레이드오프에 대한 답입니다.</p>
 <hr>
 </section>
 <section id="sec-6-4" class="content-section">
 <h2>6.4 외골격 접근: DexUMI, ExoStart, DEXOP</h2>
 <p>외골격(exoskeleton)은 인간 손에 기계적으로 연결되어 동작을 직접 캡처하는 접근입니다.</p>
 <h3>DexUMI (2025)</h3>
-<p>Xu et al. [2025]의 DexUMI는 "인간 손을 범용 인터페이스로":</p>
+<p>Xu et al.<sup><a class="cite-link" href="#ch6-ref-5" title="al. 2025">[5]</a></sup>의 DexUMI는 "인간 손을 범용 인터페이스로":</p>
 <ul>
 <li>착용형 외골격으로 <strong>운동학적 격차(kinematic gap)</strong> 해소</li>
 <li>SAM2 인페인팅(inpainting)으로 <strong>시각적 격차(visual gap)</strong> 해소 — 카메라 이미지에서 인간 손을 지우고 로봇 손으로 대체</li>
@@ -188,7 +188,7 @@
   <figcaption>Figure 6.4: DexUMI의 이중 격차 해소. Source: DexUMI (2025).</figcaption>
 </figure>
 <h3>ExoStart (2025)</h3>
-<p>Si et al. [2025]의 ExoStart는 <strong>10회 외골격 시연만으로</strong> 다지 조작 정책을 학습합니다:</p>
+<p>Si et al.<sup><a class="cite-link" href="#ch6-ref-5" title="al. 2025">[5]</a></sup>의 ExoStart는 <strong>10회 외골격 시연만으로</strong> 다지 조작 정책을 학습합니다:</p>
 <ol>
 <li>~10 exoskeleton demos</li>
 <li>MuJoCo dynamics filtering</li>
@@ -198,7 +198,7 @@
 </ol>
 <p>이 파이프라인은 Real-Sim-Real 전이의 대표적 사례입니다 (<a href="ch09.html">Chapter 9.4 참조</a>).</p>
 <h3>DEXOP (2025)</h3>
-<p>DEXOP [2025]은 4절 링크(4-bar linkage)로 인간 손가락과 로봇 손가락을 <strong>직접 기계적으로 연결</strong>합니다:</p>
+<p>DEXOP<sup><a class="cite-link" href="#ch6-ref-8" title="DEXOP 2025">[8]</a></sup>은 4절 링크(4-bar linkage)로 인간 손가락과 로봇 손가락을 <strong>직접 기계적으로 연결</strong>합니다:</p>
 <ul>
 <li>원격 조작 대비 <strong>8배 빠른</strong> 데이터 수집</li>
 <li>직접 접촉 피드백(direct contact feedback) 제공</li>
@@ -211,7 +211,7 @@
 <h2>6.5 인터넷 비디오 학습과 대규모 데이터</h2>
 <p>Shaw et al. [2024, CMU]은 인터넷 비디오에서 인간 손 동작을 추출하고 로봇 핸드로 리타게팅하는 접근을 제안했습니다. 이 접근의 잠재력은 <strong>확장성(scalability)</strong>에 있습니다 — 인터넷에는 수백만 개의 손 조작 비디오가 있으며, 이를 로봇 학습 데이터로 변환할 수 있다면 원격 조작의 병목을 근본적으로 해결할 수 있습니다.</p>
 <p>ImMimic <sup><a class="cite-link" href="#ch6-ref-14" title="Liu et al., 2025">[14]</a></sup>은 대규모 인간 궤적(human trajectory)과 소수의 원격 조작 궤적(teleoperation trajectory)을 보간(interpolation)하여 데이터를 증강(augment)합니다. 세미나 1에서 논의된 바와 같이, 이 접근은 <strong>비싼 teleop data 대신 human data를 시너지적으로 활용</strong>하는 방향을 대표합니다 (<a href="ch10.html">Chapter 10.2 참조</a>).</p>
-<p>DexH2R [2024]은 태스크 지향 인간-로봇 다지 전이(task-oriented human-to-robot dexterous transfer)를 구현하여, 인간 시연의 의도를 로봇 동작으로 매핑합니다.</p>
+<p>DexH2R<sup><a class="cite-link" href="#ch6-ref-15" title="DexH2R 2024">[15]</a></sup>은 태스크 지향 인간-로봇 다지 전이(task-oriented human-to-robot dexterous transfer)를 구현하여, 인간 시연의 의도를 로봇 동작으로 매핑합니다.</p>
 <figure>
   <img src="../assets/figures/ch06/fig_6_5_collection_spectrum_darkmode.png" alt="Figure 6.5: 인간 손 데이터 수집 방법의 스펙트럼." loading="lazy" onerror="this.src='../assets/figures/ch06/fig_6_5_collection_spectrum_technical.png'">
   <figcaption>Figure 6.5: 인간 손 데이터 수집 방법의 스펙트럼.</figcaption>

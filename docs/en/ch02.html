@@ -78,13 +78,13 @@
 </section>
 <section id="sec-2-1" class="content-section">
 <h2>2.1 Sensing Physics: Transduction Principles</h2>
-<p>Tactile sensors convert physical contact into electrical signals through various transduction mechanisms. Building on the taxonomy established by Dahiya et al. [2010], we review the principal approaches.</p>
+<p>Tactile sensors convert physical contact into electrical signals through various transduction mechanisms. Building on the taxonomy established by Dahiya et al. <sup><a class="cite-link" href="#ch2-ref-1" title="2010">[1]</a></sup>, we review the principal approaches.</p>
 <h3>2.1.1 Piezoresistive</h3>
-<p>These sensors measure changes in material resistance caused by contact. Their simplicity and low cost make them among the most widely used. Sundaram et al. [2019] deployed 548 piezoresistive sensors on a human hand (the STAG glove), recording force distributions during grasping at high spatial resolution (<em>Nature</em>, 2019).</p>
+<p>These sensors measure changes in material resistance caused by contact. Their simplicity and low cost make them among the most widely used. Sundaram et al. <sup><a class="cite-link" href="#ch2-ref-9" title="2019">[9]</a></sup> deployed 548 piezoresistive sensors on a human hand (the STAG glove), recording force distributions during grasping at high spatial resolution (<em>Nature</em>, 2019).</p>
 <p><strong>Strengths</strong>: Low cost, simple construction, high sensitivity</p>
 <p><strong>Limitations</strong>: Hysteresis, temperature dependence, drift under repeated use</p>
 <h3>2.1.2 Capacitive</h3>
-<p>Capacitive sensors detect changes in capacitance between two electrodes. Murphy et al. [2025] implemented teaching by demonstration with 102 capacitive sensors. A notable advantage is proximity sensing — the ability to detect approaching objects before contact.</p>
+<p>Capacitive sensors detect changes in capacitance between two electrodes. Murphy et al.<sup><a class="cite-link" href="#ch2-ref-6" title="al. 2025">[6]</a></sup> implemented teaching by demonstration with 102 capacitive sensors. A notable advantage is proximity sensing — the ability to detect approaching objects before contact.</p>
 <p><strong>Strengths</strong>: High sensitivity, low power consumption, proximity sensing</p>
 <p><strong>Limitations</strong>: Susceptibility to electromagnetic interference (EMI), wiring complexity</p>
 <h3>2.1.3 Optical — Vision-Based Tactile Sensors</h3>
@@ -93,7 +93,7 @@
 <p>Combinations of magnets with Hall-effect or magnetoresistive sensors measure deformation. ReSkin <sup><a class="cite-link" href="#ch2-ref-7" title="Bhirangi et al., 2021">[7]</a></sup> introduced a magnetic elastomer tactile skin costing less than $6 per unit, 2-3 mm thick, and durable for 50,000+ interactions. The key innovation is separating electronics from the passive sensing surface. AnySkin <sup><a class="cite-link" href="#ch2-ref-8" title="Bhirangi et al., 2024">[8]</a></sup> advanced this idea to achieve <strong>12-second replacement</strong> without recalibration, maintaining 92% slip detection accuracy.</p>
 <blockquote class="key-paper"><strong>Key Paper</strong>: Bhirangi, R., Hellebrekers, T., Majidi, C., & Gupta, A. (2021). "ReSkin: Versatile, Replaceable, Lasting Tactile Skins." <em>arXiv preprint</em>.
 A magnetic elastomer-based, low-cost ($6/unit), replaceable tactile skin offering a practical answer to the sensor durability challenge in industrial settings.</blockquote>
-<p>The OSMO glove [2025] uses 12 three-axis magnetic sensors to simultaneously measure normal and shear forces, with MuMetal shielding to suppress external magnetic interference (<a href="ch06.html">Chapter 6.3</a>).</p>
+<p>The OSMO glove<sup><a class="cite-link" href="#ch2-ref-27" title="glove 2025">[27]</a></sup> uses 12 three-axis magnetic sensors to simultaneously measure normal and shear forces, with MuMetal shielding to suppress external magnetic interference (<a href="ch06.html">Chapter 6.3</a>).</p>
 <h3>2.1.5 Piezoelectric</h3>
 <p>Piezoelectric materials (PZT, PVDF) generate charge under deformation. These sensors excel at detecting dynamic changes — vibration and texture — rather than static forces, serving as functional analogs of Pacinian corpuscles. Combined with energy harvesting, self-powered sensors become feasible <sup><a class="cite-link" href="#ch2-ref-12" title="Yu et al., 2025">[12]</a></sup>.</p>
 <figure>
@@ -173,11 +173,11 @@ A magnetic elastomer-based, low-cost ($6/unit), replaceable tactile skin offerin
 <h2>2.2 Vision-Based Tactile Sensors: From GelSight to Digit 360</h2>
 <p>Vision-based optical tactile sensors have dominated tactile research since GelSight's introduction in 2017. Their core principle is <strong>photometric stereo</strong>: LEDs embedded in an elastomeric gel illuminate its surface; a camera captures deformation patterns caused by contact; and the resulting images are processed to reconstruct a 3D contact map.</p>
 <h3>GelSight (2017)</h3>
-<p>Developed by Yuan, Dong, and Adelson [2017] at MIT CSAIL, GelSight uses photometric stereo to reconstruct contact surface geometry at micrometer resolution. Its paradigm-shifting contribution was bringing "the tools of vision" to tactile sensing — unlike electrical transduction methods, GelSight directly leverages the rich ecosystem of image processing and deep learning.</p>
+<p>Developed by Yuan, Dong, and Adelson <sup><a class="cite-link" href="#ch2-ref-2" title="2017">[2]</a></sup> at MIT CSAIL, GelSight uses photometric stereo to reconstruct contact surface geometry at micrometer resolution. Its paradigm-shifting contribution was bringing "the tools of vision" to tactile sensing — unlike electrical transduction methods, GelSight directly leverages the rich ecosystem of image processing and deep learning.</p>
 <blockquote class="key-paper"><strong>Key Paper</strong>: Yuan, W., Dong, S., & Adelson, E. H. (2017). "GelSight: High-Resolution Robot Tactile Sensors for Estimating Geometry and Force." <em>Sensors</em>, 17(12), 2762.
 The foundational paper for photometric stereo-based high-resolution 3D tactile sensing. With 600+ citations, it marks the beginning of the vision-based tactile sensor paradigm.</blockquote>
 <h3>GelSight Wedge (2021)</h3>
-<p>Wang et al. [2021] developed a wedge-shaped variant that fits standard robot grippers — a critical step from research prototype to practical integration.</p>
+<p>Wang et al.<sup><a class="cite-link" href="#ch2-ref-3" title="al. 2021">[3]</a></sup> developed a wedge-shaped variant that fits standard robot grippers — a critical step from research prototype to practical integration.</p>
 <h3>DIGIT (2020)</h3>
 <p>Meta FAIR's DIGIT <sup><a class="cite-link" href="#ch2-ref-4" title="Lambeta et al., 2020">[4]</a></sup> was a milestone in miniaturization and cost reduction. At <strong>$350</strong>, it was over 10x cheaper than BioTac ($5K-10K), with a compact form factor suitable for mounting on individual fingers of a dexterous hand. DIGIT democratized tactile research and became the standard sensor for numerous subsequent studies.</p>
 <figure>
@@ -185,7 +185,7 @@ The foundational paper for photometric stereo-based high-resolution 3D tactile s
   <figcaption>Figure 2.2: Evolution of vision-based tactile sensors. Source: Yuan et al. (2017), Wang et al. (2021), Lambeta et al. (2020, 2024).</figcaption>
 </figure>
 <h3>Digit 360 (2024)</h3>
-<p>Lambeta et al. [2024] presented the most comprehensive artificial fingertip to date:</p>
+<p>Lambeta et al.<sup><a class="cite-link" href="#ch2-ref-5" title="al. 2024">[5]</a></sup> presented the most comprehensive artificial fingertip to date:</p>
 <ul>
 <li><strong>8.3M taxels</strong>: Approximately 8.3 million sensing points</li>
 <li><strong>18+ sensing modalities</strong>: 3D geometry, force (normal + shear), vibration, temperature, proximity, and more</li>
@@ -194,9 +194,9 @@ The foundational paper for photometric stereo-based high-resolution 3D tactile s
 </ul>
 <p>This sensor integrates multimodal sensing corresponding to multiple human receptor types into a single fingertip — the closest attempt yet to a "complete" artificial touch organ.</p>
 <h3>Modularized GelSight Design (2025)</h3>
-<p>Agarwal et al. [2025] proposed a systematic modular design framework for GelSight-family sensors (<em>IJRR</em>), enabling application-specific customization by combining gel materials, illumination layouts, camera positions, and housings as modular units.</p>
+<p>Agarwal et al.<sup><a class="cite-link" href="#ch2-ref-6" title="al. 2025">[6]</a></sup> proposed a systematic modular design framework for GelSight-family sensors (<em>IJRR</em>), enabling application-specific customization by combining gel materials, illumination layouts, camera positions, and housings as modular units.</p>
 <h3>Limitations of Vision-Based Sensors</h3>
-<p>The primary limitation is <strong>durability</strong>. Gel surfaces wear with repeated contact; light sources degrade; dust infiltration and cleaning difficulties constrain long-term industrial operation. When the F-TAC Hand [2025] placed 17 sensors across the hand, it also created 17 potential failure points. AnySkin's [2024] 12-second replacement approach offers one practical remedy (<a href="ch13.html">Chapter 13.1</a>).</p>
+<p>The primary limitation is <strong>durability</strong>. Gel surfaces wear with repeated contact; light sources degrade; dust infiltration and cleaning difficulties constrain long-term industrial operation. When the F-TAC Hand<sup><a class="cite-link" href="#ch2-ref-15" title="Hand 2025">[15]</a></sup> placed 17 sensors across the hand, it also created 17 potential failure points. AnySkin's [2024] 12-second replacement approach offers one practical remedy (<a href="ch13.html">Chapter 13.1</a>).</p>
 <figure>
   <img src="../assets/figures/ch02/fig_2_3_photometric_stereo_darkmode.png" alt="Figure 2.3: Operating principle of vision-based tactile sensors — photometric stereo-based 3D contact map reconstruction." loading="lazy" onerror="this.src='../assets/figures/ch02/fig_2_3_photometric_stereo_technical.png'">
   <figcaption>Figure 2.3: Operating principle of vision-based tactile sensors — photometric stereo-based 3D contact map reconstruction.</figcaption>
@@ -295,7 +295,7 @@ A comprehensive review of force measurement approaches in vision-based tactile s
 <td>Universal Slip Detection</td>
 </tr>
 </tbody></table>
-<blockquote class=""><strong>Key Insight</strong>: Sensor selection is not a problem with a single optimal answer but should be approached from a <strong>task-sensor fitness</strong> perspective. The tactile data taxonomy by Albini et al. [2025] systematizes the decision flow from sensor hardware to data representation (<a href="ch03.html">Chapter 3</a>).</blockquote>
+<blockquote class=""><strong>Key Insight</strong>: Sensor selection is not a problem with a single optimal answer but should be approached from a <strong>task-sensor fitness</strong> perspective. The tactile data taxonomy by Albini et al.<sup><a class="cite-link" href="#ch2-ref-6" title="al. 2025">[6]</a></sup> systematizes the decision flow from sensor hardware to data representation (<a href="ch03.html">Chapter 3</a>).</blockquote>
 <hr>
 </section>
 <section id="sec-2-6" class="content-section">

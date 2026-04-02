@@ -64,7 +64,7 @@
 
 <section id="sec-overview" class="content-section">
 <h2>Overview</h2>
-<p>If tactile sensors (Chapter 2) convert physical contact into electrical signals, the question of <strong>how to structure those signals, how to collect them, and how to build general-purpose representations through pretraining</strong> is the subject of this chapter. Anchored by the taxonomy of Albini et al. [2025], we cover six data structures, collection pipelines, public datasets, and the path toward tactile foundation models through self-supervised pretraining.</p>
+<p>If tactile sensors (Chapter 2) convert physical contact into electrical signals, the question of <strong>how to structure those signals, how to collect them, and how to build general-purpose representations through pretraining</strong> is the subject of this chapter. Anchored by the taxonomy of Albini et al.<sup><a class="cite-link" href="#ch3-ref-1" title="al. 2025">[1]</a></sup>, we cover six data structures, collection pipelines, public datasets, and the path toward tactile foundation models through self-supervised pretraining.</p>
 <blockquote class=""><strong>After reading this chapter, you will be able to...</strong>
 - Distinguish the six tactile data representation structures and their application contexts.
 - Understand canonical and sensor-agnostic representations.
@@ -74,7 +74,7 @@
 </section>
 <section id="sec-3-1" class="content-section">
 <h2>3.1 A Taxonomy of Data Representations</h2>
-<p>Albini et al. [2025] classified tactile data representations into six structures. This survey (submitted to <em>IEEE T-RO</em>) is establishing itself as the de facto standard taxonomy for tactile data representation.</p>
+<p>Albini et al.<sup><a class="cite-link" href="#ch3-ref-1" title="al. 2025">[1]</a></sup> classified tactile data representations into six structures. This survey (submitted to <em>IEEE T-RO</em>) is establishing itself as the de facto standard taxonomy for tactile data representation.</p>
 <blockquote class="key-paper"><strong>Key Paper</strong>: Albini, A., Kaboli, M., Cannata, G., & Maiolino, P. (2025). "Representing Data in Robotic Tactile Perception — A Review." <em>arXiv preprint</em> (submitted to IEEE T-RO).
 Identifies 6 data structures (vector, matrix, map, point cloud, mesh, image) with selection guidelines based on hardware, task, and information requirements.</blockquote>
 <figure>
@@ -82,7 +82,7 @@ Identifies 6 data structures (vector, matrix, map, point cloud, mesh, image) wit
   <figcaption>Figure 3.1: Albini et al.'s taxonomy of tactile data representations. Source: Albini et al. (2025).</figcaption>
 </figure>
 <h3>3.1.1 Vector</h3>
-<p>The simplest form: sensor readings arranged as a 1D vector. For multi-axis sensors, this becomes a force vector such as [fx, fy, fz]. The OSMO glove [2025] represents tactile state as a 36-dimensional vector from its 12 three-axis sensors.</p>
+<p>The simplest form: sensor readings arranged as a 1D vector. For multi-axis sensors, this becomes a force vector such as [fx, fy, fz]. The OSMO glove<sup><a class="cite-link" href="#ch3-ref-21" title="glove 2025">[21]</a></sup> represents tactile state as a 36-dimensional vector from its 12 three-axis sensors.</p>
 <p><strong>Suitable tasks</strong>: Classification, force control, slip detection</p>
 <p><strong>Limitations</strong>: Loss of spatial relationship information</p>
 <h3>3.1.2 Matrix</h3>
@@ -100,7 +100,7 @@ Point cloud-based tactile representation with teacher-student RL for visuotactil
 <p><strong>Suitable tasks</strong>: 3D shape reconstruction, 6-DoF pose estimation, visuo-tactile fusion</p>
 <p><strong>Limitations</strong>: Non-uniform density, unordered data processing required</p>
 <h3>3.1.5 Mesh</h3>
-<p>Contact surfaces modeled as triangular meshes. Combined with finite element methods (FEM) for deformation simulation. DiffTactile [2024] uses mesh-based contact modeling in a differentiable tactile simulator (<a href="ch09.html">Chapter 9.1</a>).</p>
+<p>Contact surfaces modeled as triangular meshes. Combined with finite element methods (FEM) for deformation simulation. DiffTactile<sup><a class="cite-link" href="#ch3-ref-11" title="DiffTactile 2024">[11]</a></sup> uses mesh-based contact modeling in a differentiable tactile simulator (<a href="ch09.html">Chapter 9.1</a>).</p>
 <p><strong>Suitable tasks</strong>: Deformation simulation, force distribution analysis</p>
 <p><strong>Limitations</strong>: Computational cost, real-time processing difficulty</p>
 <h3>3.1.6 Image</h3>
@@ -115,9 +115,9 @@ Point cloud-based tactile representation with teacher-student RL for visuotactil
 </section>
 <section id="sec-3-2" class="content-section">
 <h2>3.2 How Representation Choices Affect Task Performance</h2>
-<p>The choice of data representation directly impacts learning performance. Wu et al. [2025] proposed Canonical 3D Tactile representations, transforming raw sensor output into a 3D canonical coordinate system to enable task-agnostic transfer (<em>ICRA 2025</em>).</p>
+<p>The choice of data representation directly impacts learning performance. Wu et al.<sup><a class="cite-link" href="#ch3-ref-1" title="al. 2025">[1]</a></sup> proposed Canonical 3D Tactile representations, transforming raw sensor output into a 3D canonical coordinate system to enable task-agnostic transfer (<em>ICRA 2025</em>).</p>
 <p>The key insight, also discussed in Seminar 1, is a <strong>two-stage approach</strong>: pretrain a tactile encoder on large-scale play data, then learn the policy from a few expert demonstrations. The visuo-tactile imitation learning pipeline combining three-axis tactile, vision (Realsense D435), and robot state was the core pipeline presented in Seminar 1.</p>
-<p>Albini et al. [2025] propose selection guidelines along three axes:</p>
+<p>Albini et al.<sup><a class="cite-link" href="#ch3-ref-1" title="al. 2025">[1]</a></sup> propose selection guidelines along three axes:</p>
 <ol>
 <li><strong>Hardware</strong>: Sensor output characteristics determine the natural representation (vision sensor → image, distributed sensor → matrix)</li>
 <li><strong>Task</strong>: Grasp classification → vector/matrix; shape reconstruction → point cloud/mesh</li>
@@ -129,7 +129,7 @@ Point cloud-based tactile representation with teacher-student RL for visuotactil
 <h2>3.3 Canonical and Sensor-Agnostic Representations</h2>
 <p>A fundamental limitation of tactile research is <strong>sensor specificity</strong>: representations learned on GelSight do not work on DIGIT; those from DIGIT do not transfer to ReSkin. Three main approaches address this problem:</p>
 <h3>3.3.1 AnyTouch / AnyTouch 2 (2025)</h3>
-<p>AnyTouch [2025] learns <strong>unified representations</strong> of static and dynamic touch across multiple vision-based tactile sensors. AnyTouch 2 [2025] extends this to dynamic perception, enabling sensor-agnostic deployment.</p>
+<p>AnyTouch<sup><a class="cite-link" href="#ch3-ref-7" title="AnyTouch 2025">[7]</a></sup> learns <strong>unified representations</strong> of static and dynamic touch across multiple vision-based tactile sensors. AnyTouch 2 [2025] extends this to dynamic perception, enabling sensor-agnostic deployment.</p>
 <h3>3.3.2 Sensor-Invariant Tactile Representation (2025)</h3>
 <p>Achieves <strong>zero-shot transfer</strong> across optical sensor designs by learning representations that strip sensor-specific information while preserving essential contact characteristics.</p>
 <h3>3.3.3 Canonical 3D Tactile (Wu et al., 2025)</h3>
@@ -146,13 +146,13 @@ Point cloud-based tactile representation with teacher-student RL for visuotactil
 <p>Collecting tactile data is inherently harder than visual data — <strong>physical contact is required</strong>. Three primary collection methods exist:</p>
 <h3>3.4.1 Teleoperation</h3>
 <p>A human operator remotely controls the robot while recording tactile data. This yields high-quality demonstrations but with very low throughput — roughly <strong>10 demonstrations per hour</strong> [DexCap benchmark]. DexCap is 3x faster than teleoperation but still limited.</p>
-<p>Wu et al. [2025], as presented in Seminar 1, used a two-stage approach: collect large-scale play data via teleoperation, then fine-tune a policy with a few expert demonstrations.</p>
+<p>Wu et al.<sup><a class="cite-link" href="#ch3-ref-1" title="al. 2025">[1]</a></sup>, as presented in Seminar 1, used a two-stage approach: collect large-scale play data via teleoperation, then fine-tune a policy with a few expert demonstrations.</p>
 <h3>3.4.2 Kinesthetic Teaching</h3>
-<p>DexForce [2025] proposed a pipeline using a spring model for kinesthetic teaching that <strong>naturally records force-torque information</strong>. This captures more natural force profiles than teleoperation (<a href="ch07.html">Chapter 7.4</a>).</p>
+<p>DexForce<sup><a class="cite-link" href="#ch3-ref-14" title="DexForce 2025">[14]</a></sup> proposed a pipeline using a spring model for kinesthetic teaching that <strong>naturally records force-torque information</strong>. This captures more natural force profiles than teleoperation (<a href="ch07.html">Chapter 7.4</a>).</p>
 <h3>3.4.3 Autonomous Exploration</h3>
-<p>The robot autonomously explores the environment to collect tactile data. Throughput is high, but demonstration quality may be lower. PP-Tac [2025] uses physics-based trajectory synthesis for automatic tactile data generation.</p>
+<p>The robot autonomously explores the environment to collect tactile data. Throughput is high, but demonstration quality may be lower. PP-Tac<sup><a class="cite-link" href="#ch3-ref-15" title="PP-Tac 2025">[15]</a></sup> uses physics-based trajectory synthesis for automatic tactile data generation.</p>
 <h3>3.4.4 Synthetic Data</h3>
-<p>NVIDIA's Isaac Sim pipeline generates 780,000 trajectories (equivalent to 6,500 hours) in <strong>just 11 hours</strong>, improving real-world performance by 40%. Tacto <sup><a class="cite-link" href="#ch3-ref-10" title="Wang, Lambeta et al., 2022">[10]</a></sup> is an open-source simulator for vision-based tactile sensors enabling sim-to-real training. DiffTactile [2024] supports gradient-based optimization through differentiable simulation (<a href="ch09.html">Chapter 9</a>).</p>
+<p>NVIDIA's Isaac Sim pipeline generates 780,000 trajectories (equivalent to 6,500 hours) in <strong>just 11 hours</strong>, improving real-world performance by 40%. Tacto <sup><a class="cite-link" href="#ch3-ref-10" title="Wang, Lambeta et al., 2022">[10]</a></sup> is an open-source simulator for vision-based tactile sensors enabling sim-to-real training. DiffTactile<sup><a class="cite-link" href="#ch3-ref-11" title="DiffTactile 2024">[11]</a></sup> supports gradient-based optimization through differentiable simulation (<a href="ch09.html">Chapter 9</a>).</p>
 <figure>
   <img src="../assets/figures/ch03/fig_3_4_collection_pipelines_darkmode.png" alt="Figure 3.4: Comparison of tactile data collection pipelines." loading="lazy" onerror="this.src='../assets/figures/ch03/fig_3_4_collection_pipelines_technical.png'">
   <figcaption>Figure 3.4: Comparison of tactile data collection pipelines.</figcaption>
@@ -256,7 +256,7 @@ Point cloud-based tactile representation with teacher-student RL for visuotactil
 </tbody></table>
 <blockquote class="key-paper"><strong>Key Paper</strong>: VTDexManip (ICLR 2025). The first large-scale visual-tactile dataset from human demonstrations, spanning 10 tasks and 182 objects with an RL benchmark.</blockquote>
 <p>VTDexManip is a significant milestone — the first large-scale collection of visual-tactile data from actual human demonstrations of dexterous manipulation.</p>
-<p>Open X-Embodiment [2024] is the largest robot manipulation dataset (1M+ trajectories from 22 embodiments), but tactile data is included in only a small subset. The absence of large-scale tactile-specific datasets is a key limitation discussed in Chapter 13 (<a href="ch13.html">Chapter 13.1</a>).</p>
+<p>Open X-Embodiment<sup><a class="cite-link" href="#ch3-ref-16" title="X-Embodiment 2024">[16]</a></sup> is the largest robot manipulation dataset (1M+ trajectories from 22 embodiments), but tactile data is included in only a small subset. The absence of large-scale tactile-specific datasets is a key limitation discussed in Chapter 13 (<a href="ch13.html">Chapter 13.1</a>).</p>
 <figure>
   <img src="../assets/figures/ch03/fig_3_5_dataset_comparison_darkmode.png" alt="Figure 3.5: Scale and modality comparison of major tactile datasets." loading="lazy" onerror="this.src='../assets/figures/ch03/fig_3_5_dataset_comparison_technical.png'">
   <figcaption>Figure 3.5: Scale and modality comparison of major tactile datasets.</figcaption>
@@ -272,7 +272,7 @@ Point cloud-based tactile representation with teacher-student RL for visuotactil
 Self-supervised tactile foundation model pretrained on 460K+ images from multiple vision-based tactile sensors. A milestone for general-purpose tactile representations.</blockquote>
 <p>Sparsh's significance lies in being the first large-scale attempt to replicate for touch what ImageNet pretraining accomplished for vision. However, 460K images remain orders of magnitude smaller than ImageNet's 14M, and a 10x+ data expansion is needed (<a href="ch13.html">Chapter 13.2</a>).</p>
 <h3>UniTouch (2024)</h3>
-<p>Yang et al. [2024] use <strong>contrastive learning</strong> to align touch with vision, language, and audio (<em>CVPR 2024</em>). Analogous to how CLIP aligned vision-language, UniTouch builds a unified embedding space across touch-vision-language-audio, enabling <strong>zero-shot tactile classification</strong>.</p>
+<p>Yang et al.<sup><a class="cite-link" href="#ch3-ref-2" title="al. 2024">[2]</a></sup> use <strong>contrastive learning</strong> to align touch with vision, language, and audio (<em>CVPR 2024</em>). Analogous to how CLIP aligned vision-language, UniTouch builds a unified embedding space across touch-vision-language-audio, enabling <strong>zero-shot tactile classification</strong>.</p>
 <blockquote class="key-paper"><strong>Key Paper</strong>: Yang, F., Feng, C., Chen, Z., Park, H., Wang, D., Dou, Y., ... & Wong, A. (2024). "Binding Touch to Everything: Learning Unified Multimodal Tactile Representations." <em>CVPR 2024</em>.
 Contrastive learning aligning touch with vision, language, and audio for cross-modal retrieval and zero-shot classification.</blockquote>
 <h3>Tactile Sensing for Dexterous Manipulation Survey (2024)</h3>
@@ -285,7 +285,7 @@ Contrastive learning aligning touch with vision, language, and audio for cross-m
 </section>
 <section id="sec-summary-and-outlook" class="content-section">
 <h2>Summary and Outlook</h2>
-<p>Tactile data representations range from vectors to point clouds, with the taxonomy of Albini et al. [2025] providing selection criteria. Sensor-agnostic representations (AnyTouch, Sensor-Invariant, Canonical 3D) are essential for reproducibility and scalability, while Sparsh and UniTouch mark the first milestones toward tactile foundation models.</p>
+<p>Tactile data representations range from vectors to point clouds, with the taxonomy of Albini et al.<sup><a class="cite-link" href="#ch3-ref-1" title="al. 2025">[1]</a></sup> providing selection criteria. Sensor-agnostic representations (AnyTouch, Sensor-Invariant, Canonical 3D) are essential for reproducibility and scalability, while Sparsh and UniTouch mark the first milestones toward tactile foundation models.</p>
 <p>Yet the scale of tactile data remains orders of magnitude below that of visual data. Expanding from Touch-and-Go's 3M contacts to 100M+, applying NVIDIA's synthetic data pipeline to the tactile domain, and enabling cross-embodiment data reuse (Open X-Embodiment for hands) are key future directions.</p>
 <p>The next chapter examines the <strong>design principles of robot hands</strong> that house these sensors and data (<a href="ch04.html">Chapter 4: Robot Hand Design</a>).</p>
 <hr>
