@@ -103,6 +103,16 @@ bash scripts/build_pdf.sh en
     └── skills/      # 7개 스킬 (literature-research, web-build 등)
 ```
 
+## Contributors
+
+> 기여량 순 정렬. 기여 방법은 [CONTRIBUTING.md](CONTRIBUTING.md)를 참고하세요.
+
+<!-- CONTRIBUTORS-START -->
+| Avatar | Contributor | Contributions |
+|:------:|:-----------:|:-------------|
+| <img src="https://github.com/sjchoi86.png" width="50"> | [@sjchoi86](https://github.com/sjchoi86) | :book: Ch02: 상용 촉각 센서 제품 정보 및 3개 신규 센서 카테고리 ([`f6f6e59`](https://github.com/terryum/book-robot-hand-tactile-sensor/commit/f6f6e59)) |
+<!-- CONTRIBUTORS-END -->
+
 ## 감사의 글
 
 이 프로젝트는 황민호님의 [Harness](https://github.com/revfactory/harness)(Apache 2.0) 스킬을 이용하여 제작되었으며, 웹사이트 구조는 [AI Trend Onboarding](https://github.com/revfactory/ai-trend-onboarding)([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko))의 디자인, 레이아웃 패턴, 에이전트 아키텍처를 본 프로젝트의 도메인에 맞게 변형하여 사용했습니다. 훌륭한 도구를 만들어주신 황민호님께 감사드립니다.

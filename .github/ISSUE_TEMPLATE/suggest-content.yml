@@ -1,0 +1,72 @@
+name: Suggest Content
+description: Propose new content, references, or materials for the book
+title: "[Content] "
+labels: ["enhancement"]
+assignees: ["terryum"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Content type
+      options:
+        - "New section in existing chapter"
+        - "Additional reference / citation"
+        - "New figure / illustration"
+        - "Strengthen existing content"
+        - "New commercial product / sensor info"
+    validations:
+      required: true
+  - type: dropdown
+    id: chapter
+    attributes:
+      label: Related chapter
+      description: Which chapter should this content be added to?
+      options:
+        - "Ch01: Why Tactile Sensing"
+        - "Ch02: Tactile Sensor Technology"
+        - "Ch03: Tactile Data"
+        - "Ch04: Robot Hand Design"
+        - "Ch05: Intelligent Mechanisms"
+        - "Ch06: Human Hand Data Collection"
+        - "Ch07: Learning to Manipulate"
+        - "Ch08: VLA Models"
+        - "Ch09: Sim-to-Real Transfer"
+        - "Ch10: Embodiment Retargeting"
+        - "Ch11: Research Integration"
+        - "Ch12: Physical AI & Industry"
+        - "Ch13: Limitations & Future"
+        - "New chapter / unsure"
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What content should be added?
+      description: Describe the content you'd like to see. Include key points, product names, sensor specs, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: Reference links
+      description: Provide URLs to papers, product pages, Notion pages, blog posts, or any supporting materials.
+      placeholder: |
+        - https://arxiv.org/abs/...
+        - https://www.notion.so/...
+        - https://product-website.com/...
+    validations:
+      required: false
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why is this important?
+      description: Explain why this content would improve the book.
+    validations:
+      required: true
+  - type: checkboxes
+    id: license
+    attributes:
+      label: License agreement
+      options:
+        - label: I agree that submitted materials may be used under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) with attribution.
+          required: true

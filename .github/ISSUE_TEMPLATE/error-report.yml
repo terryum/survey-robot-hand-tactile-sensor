@@ -1,0 +1,61 @@
+name: Report Error
+description: Found a typo, factual error, or broken link in the book?
+title: "[Error] "
+labels: ["error"]
+assignees: ["terryum"]
+body:
+  - type: dropdown
+    id: chapter
+    attributes:
+      label: Chapter
+      description: Which chapter contains the error?
+      options:
+        - "Ch01: Why Tactile Sensing"
+        - "Ch02: Tactile Sensor Technology"
+        - "Ch03: Tactile Data"
+        - "Ch04: Robot Hand Design"
+        - "Ch05: Intelligent Mechanisms"
+        - "Ch06: Human Hand Data Collection"
+        - "Ch07: Learning to Manipulate"
+        - "Ch08: VLA Models"
+        - "Ch09: Sim-to-Real Transfer"
+        - "Ch10: Embodiment Retargeting"
+        - "Ch11: Research Integration"
+        - "Ch12: Physical AI & Industry"
+        - "Ch13: Limitations & Future"
+        - "Glossary"
+        - "Other"
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language version
+      options:
+        - "Korean (book/ko/)"
+        - "English (book/en/)"
+        - "Both"
+    validations:
+      required: true
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: Section heading, line number, or quote the problematic text.
+      placeholder: "Section 2.1.3, paragraph 2: 'GelSight was introduced in 2015' should be 2017"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What's wrong?
+      description: Describe the error clearly.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested correction
+      description: (Optional) How should it be fixed?
+    validations:
+      required: false

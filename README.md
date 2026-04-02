@@ -103,6 +103,16 @@ bash scripts/build_pdf.sh en
     └── skills/      # 7 skills (literature-research, web-build, etc.)
 ```
 
+## Contributors
+
+> Sorted by contribution amount. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to contribute.
+
+<!-- CONTRIBUTORS-START -->
+| Avatar | Contributor | Contributions |
+|:------:|:-----------:|:-------------|
+| <img src="https://github.com/sjchoi86.png" width="50"> | [@sjchoi86](https://github.com/sjchoi86) | :book: Ch02: Commercial tactile sensor products & 3 new sensor categories ([`f6f6e59`](https://github.com/terryum/book-robot-hand-tactile-sensor/commit/f6f6e59)) |
+<!-- CONTRIBUTORS-END -->
+
 ## Acknowledgment
 
 This project was built using [Harness](https://github.com/revfactory/harness) (Apache 2.0) by Minho Hwang. The website structure was adapted from [AI Trend Onboarding](https://github.com/revfactory/ai-trend-onboarding) ([CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)) by Minho Hwang — the design, layout patterns, and agent architecture were modified for this project's domain. Special thanks to Minho Hwang for creating these excellent tools.
