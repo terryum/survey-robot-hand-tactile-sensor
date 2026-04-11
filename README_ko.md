@@ -107,6 +107,14 @@ bash scripts/build_pdf.sh en
 
 ## 변경 이력
 
+### 2026-04-11: 이미지 전략 전환 + 최호중 박사님 세미나 통합
+- **이미지 전략**: AI 생성 일러스트 → arXiv 논문 figure 크롭 우선으로 전환. 15개 논문에서 25개 figure 추출, Ch02/Ch03/Ch04/Ch06/Ch07/Ch10에 삽입.
+- **하네스 업데이트**: `book-illustrator.md`를 Image Curator로 재작성 (논문 figure 우선, AI 생성 보조). `book-creation-playbook.md` 업데이트.
+- **[최호중 박사님](https://www.hojungchoi.com/) SNU 세미나**: CoinFT, UMI-FT, ACP 콘텐츠를 5개 챕터(Ch02, Ch03, Ch06, Ch07, Ch13)에 통합. 세미나 인용 논문 12편 추가 (Kim 2017, Palli 2014, Fernandez 2021, Winston 2025, Yoshida 2024, Sarac 2022, Adeniji 2025, ALOHA Unleashed 등). BibTeX 12건 추가.
+- **Ch04 보강**: LEAP Hand (MCP 관절 메커니즘, 19.5N 당김력), ORCA Hand (poppable joint, 10K 사이클, 10.5kg 하중, zero-shot RL).
+- **Ch02 수정**: F-TAC Hand "100% 성공" → 촉각 적응 조건에서만 100%로 정정.
+- 이미지 비율: 29% 실제 → 36% 실제 (113개 중 41개 논문 figure).
+
 ### 2026-04-07: Human-to-Robot Transfer 서베이 업데이트
 2024-2026년 40+편 논문 서베이를 기반으로 7개 챕터 대규모 업데이트:
 - **Ch10 (Embodiment Retargeting)**: 6절 → 8절로 재구성. §10.6 Human+Robot Co-training (EgoMimic, EgoScale, AoE, pi0), §10.7 Teleop-Free 접근 (X-Sim, EgoZero, VidBot, Human2Bot) 신규. 14편 추가.

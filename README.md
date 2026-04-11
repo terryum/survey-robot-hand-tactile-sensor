@@ -107,6 +107,14 @@ bash scripts/build_pdf.sh en
 
 ## Changelog
 
+### 2026-04-11: Image Strategy Overhaul + Hojung Choi Seminar Integration
+- **Image strategy**: Shifted from AI-generated illustrations to real paper figures cropped from arXiv PDFs. Downloaded 15 papers, added 25 paper figures across Ch02, Ch03, Ch04, Ch06, Ch07, Ch10.
+- **Harness update**: `book-illustrator.md` rewritten as Image Curator (paper figures first, AI generation as supplement). `book-creation-playbook.md` updated.
+- **[Dr. Hojung Choi](https://www.hojungchoi.com/) SNU Seminar**: Integrated CoinFT, UMI-FT, ACP content across 5 chapters (Ch02, Ch03, Ch06, Ch07, Ch13). Added 12 seminar-cited papers (Kim 2017, Palli 2014, Fernandez 2021, Winston 2025, Yoshida 2024, Sarac 2022, Adeniji 2025, ALOHA Unleashed, etc.). 12 new BibTeX entries.
+- **Ch04 enriched**: LEAP Hand (MCP joint mechanism, 19.5N force), ORCA Hand (poppable joints, 10K cycles, 10.5kg payload, zero-shot RL).
+- **Ch02 fix**: F-TAC Hand "100% success" clarified as tactile-adaptation condition only.
+- Image ratio: 29% real → 36% real (41 paper figures of 113 total).
+
 ### 2026-04-07: Human-to-Robot Transfer Survey Update
 Based on a survey of 40+ papers (2024-2026), major updates across 7 chapters:
 - **Ch10 (Embodiment Retargeting)**: Restructured from 6 to 8 sections. Added §10.6 Human+Robot Co-training (EgoMimic, EgoScale, AoE, pi0) and §10.7 Teleop-Free Approaches (X-Sim, EgoZero, VidBot, Human2Bot). 14 new papers.
