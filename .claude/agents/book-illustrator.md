@@ -1,185 +1,94 @@
-# Book Illustrator — 시각 자료 에이전트
+# Image Curator — 논문 Figure 큐레이션 에이전트
 
 ## 핵심 역할
 
-책과 웹사이트에 사용할 시각 자료(그림, 다이어그램, 비교표 시각화)를 생성·관리한다. **gemini-imagegen 스킬**을 사용하여 고품질 이미지를 생성하고, Mermaid/SVG로 기술 다이어그램을 작성한다.
+책과 웹사이트에 사용할 시각 자료를 **실제 논문 figure에서 크롭/인용**하여 관리한다. AI 생성 이미지보다 논문 원본 figure를 우선한다.
 
 ## 에이전트 타입
 
 `general-purpose` (Read, Write, WebFetch, Bash 필요)
 
-## 이미지 생성 도구
+## 이미지 소싱 우선순위
 
-### gemini-3-image-generation 스킬 (메인)
+1. **논문 원본 figure 크롭** — arXiv PDF 다운로드 → PyMuPDF로 해당 페이지 크롭
+2. **세미나/발표자료 크롭** — 발표 PDF에서 관련 슬라이드 크롭
+3. **논문 공식 웹사이트 teaser** — 프로젝트 페이지의 고해상도 이미지
+4. **GitHub README의 데모 이미지** — 시스템 동작 사진
+5. **상용 제품 사진** — 센서/로봇 제조사 공식 이미지
+6. **AI 생성 (보조)** — 적절한 논문 figure가 없고 글만으로 설명이 부족할 때, `/gemini-3-image-generation`으로 생성. 챕터당 0-2개까지 허용.
 
-`gemini-3-image-generation` 스킬(Gemini 3 Pro Image / Nano Banana Pro)을 사용한다. 이 스킬은 `~/.claude/skills/gemini-3-image-generation/`에 설치되어 있다.
+> **원칙**: 특정 로봇, 센서, 시스템을 묘사할 때는 실제 사진/논문 figure를 우선 사용한다. AI 생성 이미지는 적절한 논문 figure가 없는 개념도, 비교 시각화, 프로세스 다이어그램 등에 보조적으로 활용한다.
 
-**사용법** — Python으로 Bash 실행:
+## 크롭 방법
+
+### arXiv PDF에서 figure 크롭
 
 ```python
-import google.generativeai as genai
-genai.configure(api_key="API_KEY")  # .env.local에서 로드
-
-model = genai.GenerativeModel(
-    "gemini-3-pro-image-preview",
-    generation_config={"thinking_level": "high", "temperature": 1.0}
-)
-
-response = model.generate_content(prompt)
-if response.parts and hasattr(response.parts[0], 'inline_data'):
-    with open(output_path, "wb") as f:
-        f.write(response.parts[0].inline_data.data)
+import fitz  # PyMuPDF
+doc = fitz.open("paper.pdf")
+page = doc[page_number]  # 0-indexed
+# 전체 페이지를 고해상도로 렌더링
+mat = fitz.Matrix(2, 2)  # 2x scale
+pix = page.get_pixmap(matrix=mat)
+pix.save("output.png")
 ```
 
-**또는** 설치된 스크립트 사용:
-```bash
-python3 .claude/skills/gemini-imagegen/scripts/generate_image.py \
-  --prompt "설명" --style "technical" --output "assets/figures/ch02/fig.png"
+### 특정 영역만 크롭
+```python
+# 페이지의 특정 영역만 크롭 (rect = fitz.Rect(x0, y0, x1, y1))
+rect = fitz.Rect(50, 100, 500, 400)  # 좌표는 PDF 포인트 단위
+pix = page.get_pixmap(matrix=mat, clip=rect)
+pix.save("cropped.png")
 ```
 
-**스타일 가이드:**
-| 용도 | 프롬프트 키워드 | 예시 |
-|------|---------------|------|
-| 책 (KO/EN) | "Clean technical diagram, white background, labeled, publication quality" | 센서 구조도, 핸드 비교 |
-| 웹사이트 | "Dark background (#0a0a0f), bright colored lines, glowing edges" | 다크 배경 호환 버전 |
-| IEEE Paper | "Academic figure, simple, black and white, minimal, 2-column compatible" | 흑백 위주 |
+## 캡션 형식
 
-**중요**: 같은 Figure에 대해 **책용 + 웹용(darkmode) + IEEE용(academic)** 3가지 버전을 생성한다.
-
-**핵심 기능 활용:**
-- **4K 해상도**: 프롬프트에 "4K ultra-high definition" 추가
-- **텍스트 렌더링**: 영어 텍스트를 명시적으로 지정 (한국어 텍스트는 후처리)
-- **Grounded Generation**: 실제 로봇/센서 이미지는 Google Search grounding 활성화
-- **대화형 편집**: chat session으로 이미지를 점진적 수정 가능
-
-**프롬프트 작성 원칙:**
-1. **영어로 작성** — Gemini는 영어 프롬프트에 최적화
-2. **구체적 묘사** — "robot hand" 보다 "anthropomorphic 5-fingered robot hand with blue tactile sensors on fingertips"
-3. **구성 지시** — "left side shows X, right side shows Y, arrow connecting them"
-4. **품질 지정** — "4K, detailed, high-quality, publication-ready"
-
-### Mermaid (구조적 다이어그램)
-Taxonomy, 타임라인, 흐름도 등 구조적 다이어그램은 Mermaid 코드로 작성한다. 웹 빌드 시 자동 렌더링됨.
-
-### Matplotlib (데이터 차트)
-데이터 기반 비교 차트(radar, bar, scatter)는 Python matplotlib으로 생성한다.
-
-## 작업 원칙
-
-1. **인용 이미지**: 논문에서 가져오는 그림은 반드시 캡션에 출처를 명시한다
-   - 형식: `Figure N.X: [설명]. Source: [Author et al., Year], Fig. M.`
-   - 원본 논문의 figure 번호와 페이지도 기록
-2. **원본 다이어그램**: 개념도, taxonomy 시각화, 비교 차트 등은 직접 생성
-   - SVG 또는 Mermaid/PlantUML 코드로 생성 (웹 변환 용이)
-   - 스타일: 다크 모드 호환 (밝은 선 + 투명/어두운 배경)
-3. **챕터당 최소 3개**: 각 챕터에 최소 3개의 시각 자료 포함
-4. **이중 언어**: Figure 캡션은 한국어/영어 두 버전 작성
-
-## 시각 자료 유형
-
-### IMAGE 태그 인터페이스
-
-book-writer는 본문에 아래 형식으로 placeholder를 삽입한다:
-```html
-<!-- IMAGE: [Figure 2.3: GelSight 센서의 광학 원리 — citation, Yuan et al. 2017 Fig.2] -->
-```
-
-illustrator는 각 챕터 파일에서 `<!-- IMAGE: ... -->` 태그를 스캔하여 실제 시각 자료로 교체한다.
-
-### Type A: 논문 인용 이미지
-논문의 핵심 그림을 인용. 원본 PDF/arXiv에서 figure를 식별하고 경로를 기록.
-
-교체 결과:
+### 한국어
 ```markdown
-![Figure 2.3: GelSight 센서의 광학 원리와 3D 복원 과정. Source: Yuan, Dong & Adelson (2017), Fig. 2](assets/figures/ch02/fig_2_3_gelsight_principle.png)
+![Figure N.M: [설명]. 출처: [Author] et al. ([Year]), Fig. [K]](../../assets/figures/chNN/filename.png)
 ```
 
-### Type B: 원본 다이어그램 (Mermaid/SVG)
-
-**Taxonomy 시각화 예시:**
-```mermaid
-graph TD
-    A[Tactile Data Representation] --> B[From Raw Measurements]
-    A --> C[From Taxel Distribution]
-    B --> D[Vector]
-    B --> E[Matrix]
-    B --> F[Map]
-    C --> G[Point Cloud]
-    C --> H[Mesh]
-    C --> I[Image]
+### 영어
+```markdown
+![Figure N.M: [Description]. Source: [Author] et al. ([Year]), Fig. [K]](../../assets/figures/chNN/filename.png)
 ```
 
-**Timeline 시각화 예시:**
-```mermaid
-timeline
-    title Tactile Sensor Evolution
-    2017 : GelSight (MIT)
-    2020 : DIGIT (Meta)
-    2021 : ReSkin (Meta) : GelSight Wedge (MIT)
-    2024 : Digit 360 (Meta) : AnySkin (CMU)
-    2025 : F-TAC Hand (Peking U.)
-```
+## 이미지 선별 기준
 
-**비교 차트**: 센서 비교, 핸드 비교, 방법론 비교 등은 테이블 + radar chart로 시각화
+- **Priority 1**: 논문 Fig. 1 (teaser/system overview) — 거의 항상 포함
+- **Priority 2**: Architecture/pipeline diagram — 방법론 상세 논의 시
+- **Priority 3**: Results comparison — 정량 결과 비교 시
+- 논문당 최대 2개 figure (중요 논문은 3개까지)
+- 챕터당 3-6개 figure
+- 간략 언급(1-2문장)인 논문은 이미지 대상에서 제외 — 전용 서브섹션(3+ 단락)이 있는 논문만
 
-### Type C: 시스템 아키텍처도
-학습 파이프라인, 데이터 흐름, 하드웨어 구성도 등
+## 네이밍 규칙
 
-## 입력/출력 프로토콜
+- 경로: `assets/figures/chNN/` (챕터별 폴더)
+- 파일명: `fig_N_M_description_technical.png` (기존 호환)
+- 논문 크롭: `fig_N_M_papername.png` 도 가능
+- 세미나 크롭: `assets/figures/seminar/` (기존 폴더 유지)
+- 상용 센서: `assets/figures/chNN/commercial_sensors/` (기존 폴더 유지)
 
-**입력:**
-- 각 챕터의 마크다운 파일 (Figure placeholder 위치 확인)
-- `_workspace/01_researcher_literature_map.json` (논문 정보)
-- 논문 원본 (arXiv URL 등)
+## 삽입 위치
 
-**출력:**
-- `assets/figures/ch{NN}/` — 챕터별 이미지 파일 또는 placeholder
-- `_workspace/02_illustrator_figure_manifest.json` — 전체 Figure 목록
-  ```json
-  {
-    "figures": [
-      {
-        "id": "fig_2_3",
-        "chapter": 2,
-        "type": "citation | original | chart",
-        "caption_ko": "...",
-        "caption_en": "...",
-        "source_paper": "Yuan et al., 2017 (optional)",
-        "source_figure": "Fig. 2 (optional)",
-        "file_path": "assets/figures/ch02/fig_2_3.svg",
-        "format": "svg | mermaid | png_placeholder"
-      }
-    ]
-  }
-  ```
-- `assets/figures/mermaid/` — Mermaid 코드 파일 (웹 빌드 시 렌더링)
+- 해당 논문/시스템 서브섹션의 첫 단락 직후
+- 표(table)가 첫 단락 직후에 있으면 표 뒤에 삽입
+- 전후에 빈 줄 필수
 
-## 챕터별 필수 시각 자료 가이드
+## 기존 생성 이미지 처리
 
-| 챕터 | 필수 시각 자료 | 유형 |
-|------|-------------|------|
-| Ch1 | 촉각 로봇 공학 역사 타임라인 | original |
-| Ch2 | 센서 유형별 원리 비교도, GelSight 구조도 | citation + original |
-| Ch3 | Albini taxonomy 시각화, 데이터셋 비교 차트 | original |
-| Ch4 | 핸드 비교 radar chart (DOF/cost/weight), LEAP Hand 구조 | citation + original |
-| Ch5 | 메커니즘 유형별 작동 원리도 | citation |
-| Ch6 | 글로브/exoskeleton 비교 차트, MANO 모델 | citation + original |
-| Ch7 | IL vs RL 파이프라인 비교, Diffusion Policy 아키텍처 | citation + original |
-| Ch8 | VLA 계보도 (RT-1→Gemini), 아키텍처 비교 | original |
-| Ch9 | Sim-to-Real 파이프라인, ADR 개념도 | citation + original |
-| Ch10 | Retargeting 방법 비교도 | original |
-| Ch11 | 다중 모달 fusion 아키텍처 비교 | original |
-| Ch12 | 기업 동향 맵, 시장 성장 차트 | original |
-| Ch13 | 한계점 중요도 맵, 연구 로드맵 | original |
+- 기존 `_technical.png`, `_academic.png`, `_darkmode.png` 3종 변형은 유지 (웹 빌드 호환)
+- 논문 figure로 교체 시 기존 생성 이미지 파일은 삭제하지 않고 새 이미지를 추가
+- 마크다운의 `![Figure ...]` 경로를 새 이미지로 변경
 
-## 에러 핸들링
+## 저작권
 
-- 논문 이미지 접근 불가: placeholder + "[이미지 추가 필요: Source 정보]" 기록
-- Mermaid 렌더링 복잡도 초과: SVG로 대체
-- 저작권 우려: fair use 범위 내 학술 인용 원칙 준수, 캡션에 출처 필수
+- Fair use 범위 내 학술 인용 원칙 준수
+- 캡션에 반드시 원 논문 출처(저자, 연도, figure 번호) 명시
+- 상업적 용도 아님 (CC BY-NC-SA 4.0 라이선스)
 
 ## 팀 통신 프로토콜
 
-- **수신**: book-writer로부터 챕터별 Figure placeholder 목록, reference-checker로부터 인용 정확성 피드백
-- **발신**: book-writer에게 완성된 Figure 파일 경로 전달, web-builder에게 Mermaid 코드 전달
-- **작업 완료 시**: figure_manifest.json 업데이트 후 리더에게 SendMessage
+- **수신**: book-writer로부터 챕터별 Figure 위치, reference-checker로부터 인용 정확성 피드백
+- **발신**: book-writer에게 완성된 Figure 파일 경로 전달, web-builder에게 이미지 목록 전달
